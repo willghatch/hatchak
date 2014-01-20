@@ -1,11 +1,14 @@
-
-
-
-
+// Hatchak keyboard layout
+// It' largely taken from Programmer's Dvorak, but
+// has more convenient modifier keys.
+// Control is in a prominent place on the left and right (capsLock and quote),
+// as are Level3_Shift keys (tab and leftBracket).
+// Various symbols have been put into level3 shift, as
+// well as convenient arrow keys, end, home, and pageup/down.
 
 xkb_symbols "hatchak" {
 
-    name[Group1]= "English (US)";
+    name[Group1]= "Hatchak-g1";
 
 
 // Modifier Keys
@@ -15,12 +18,17 @@ xkb_symbols "hatchak" {
     key <CAPS>  {   [ Control_L ]   };
     // Note, that the right control is the quote key
     key <AC11>  {   [ Control_R ]   };
-    key <LALT>  {   [ Alt_L     ]   };
-    key <RALT>  {   [ Alt_R     ]   };
+    key <LCTL>  {   [ Alt_L     ]   };
+    key <RCTL>  {   [ Alt_R     ]   };
+    // I'll reserve the original alt keys for other modifiers
+    //key <LALT>  {   [ Alt_L     ]   };
+    //key <RALT>  {   [ Alt_R     ]   };
     key <LWIN>  {   [ Super_L   ]   };
-    //key <RWIN>  {   [ Super_R   ]   };
-    key <RWIN>  {   [ ISO_Level5_Shift   ]   };
-    key <MENU>  {   [ ISO_Level3_Shift ] };
+    key <RWIN>  {   [ Super_R   ]   };
+    key <AD11>  {   [ ISO_Level3_Shift ] };
+    key <TAB>   {   [ ISO_Level3_Shift ] };
+//    key <TLDE>  {   [ ISO_Level5_Shift ] };
+//    key <BKSL>  {   [ ISO_Level5_Shift ] };
 
     modifier_map Shift  { Shift_L, Shift_R };
     modifier_map Control { Control_L, Control_R };
@@ -30,70 +38,78 @@ xkb_symbols "hatchak" {
     //modifier_map Super  { Super_L, Super_R };
     modifier_map Mod2 { ISO_Level3_Shift };
     modifier_map Mod5 { ISO_Level5_Shift };
+    modifier_map Lock { Caps_Lock };
 
 
 // Other one level keys
     key.type = "ONE_LEVEL";
     key <ESC>   {   [ Escape ]  };
     key <RTRN>  {   [ Return ]  };
-    key <BKSP>  {   [ BackSpace ] };
-    key <DELE>  {   [ Delete ] };
-    key <TAB>   {   [ Tab ] };
+    //key <DELE>  {   [ Delete ] };
 
-// Alphabetic keys
+// Two level keys
+    key.type = "TWO_LEVEL";
+    key <BKSP>  {   [ BackSpace, Delete ] };
+
+// Normal keys
     key.type = "EIGHT_LEVEL";
-    key <SPCE> {        [   space ] };
-    key <TLDE> {        [     grave,    asciitilde      ]       };
-    key <AE01> {        [         1,    exclam          ]       };
-    key <AE02> {        [         2,    at              ]       };
-    key <AE03> {        [         3,    numbersign      ]       };
-    key <AE04> {        [         4,    dollar          ]       };
-    key <AE05> {        [         5,    percent         ]       };
-    key <AE06> {        [         6,    asciicircum     ]       };
-    key <AE07> {        [         7,    ampersand       ]       };
-    key <AE08> {        [         8,    asterisk        ]       };
-    key <AE09> {        [         9,    parenleft       ]       };
-    key <AE10> {        [         0,    parenright      ]       };
-    key <AE11> {        [     minus,    underscore      ]       };
-    key <AE12> {        [     equal,    plus            ]       };
+    key <SPCE> { [  space, space, Tab, ISO_Left_Tab ] };
+    // Number Row
+    // I'm reserving the tilde key for another modifier
+    //key <TLDE> { [  grave,    asciitilde      ] };
+    key <AE01> { [  semicolon, colon ] };
+    key <AE02> { [  braceleft, 7 ] };
+    key <AE03> { [  braceright, 5 ] };
+    key <AE04> { [  dollar, 3 ] };
+    key <AE05> { [  plus, 1 ] };
+    key <AE06> { [  equal, 9 ] };
+    key <AE07> { [  asciitilde, 0 ] };
+    key <AE08> { [  exclam, 2 ] };
+    key <AE09> { [  less, 4 ] };
+    key <AE10> { [  greater, 6 ] };
+    key <AE11> { [  asterisk, 8 ] };
+    key <AE12> { [  numbersign, percent ] };
 
-    key <AD01> {        [         q,    Q, 3, 4, 5, 6, 7, 8, 9               ]       };
-    key <AD02> {        [         w,    W               ]       };
-    key <AD03> {        [         e,    E               ]       };
-    key <AD04> {        [         r,    R               ]       };
-    key <AD05> {        [         t,    T               ]       };
-    key <AD06> {        [         y,    Y               ]       };
-    key <AD07> {        [         u,    U               ]       };
-    key <AD08> {        [         i,    I               ]       };
-    key <AD09> {        [         o,    O               ]       };
-    key <AD10> {        [         p,    P               ]       };
-    key <AD11> {        [ bracketleft,  braceleft       ]       };
-    key <AD12> {        [ bracketright, braceright      ]       };
+    // Upper Row
+    key <AD01> { [  minus, underscore, bar ] };
+    key <AD02> { [  comma, parenleft, bracketleft ] };
+    key <AD03> { [  period, parenright, bracketright ] };
+    key <AD04> { [  p, P, at ] };
+    key <AD05> { [  y, Y, asciicircum ] };
+    key <AD06> { [  f, F ] };
+    // Todo - add greek to G
+    key <AD07> { [  g, G ] };
+    key <AD08> { [  c, C ] };
+    key <AD09> { [  r, R ] };
+    key <AD10> { [  l, L ] };
+    // Note AD11 is a modifier key
+    key <AD12> { [ ampersand, Caps_Lock, Multi_key      ] };
+    // I'm reserving backslash for another modifier
 
-    key <AC01> {        [         a,    A               ]       };
-    key <AC02> {        [         s,    S               ]       };
-    key <AC03> {        [         d,    D               ]       };
-    key <AC04> {        [         f,    F               ]       };
-    key <AC05> {        [         g,    G               ]       };
-    key <AC06> {        [         h,    H               ]       };
-    key <AC07> {        [         j,    J               ]       };
-    key <AC08> {        [         k,    K               ]       };
-    key <AC09> {        [         l,    L               ]       };
-    key <AC10> {        [ semicolon,    colon           ]       };
-  //  key <AC11> {        [ apostrophe,   quotedbl        ]       };
-    key <RCTL> {        [ apostrophe, quotedbl ] };
+    // Home Row
+    key <AC01> { [  a, A, slash ] };
+    key <AC02> { [  o, O, question ] };
+    key <AC03> { [  e, E, backslash ] };
+    key <AC04> { [  u, U ] };
+    key <AC05> { [  i, I ] };
+    key <AC06> { [  d, D, Left ] };
+    key <AC07> { [  h, H, Down ] };
+    key <AC08> { [  t, T, Up ] };
+    key <AC09> { [  n, N, Right ] };
+    key <AC10> { [  s, S, Prior ] }; // Prior is pageup
+    // Note the lack of AC11 - it's a mod key now
 
-    key <AB01> {        [         z,    Z               ]       };
-    key <AB02> {        [         x,    X               ]       };
-    key <AB03> {        [         c,    C               ]       };
-    key <AB04> {        [         v,    V               ]       };
-    key <AB05> {        [         b,    B               ]       };
-    key <AB06> {        [         n,    N               ]       };
-    key <AB07> {        [         m,    M               ]       };
-    key <AB08> {        [     comma,    less            ]       };
-    key <AB09> {        [    period,    greater         ]       };
-    key <AB10> {        [     slash,    question        ]       };
+    // Lower Row
+    key <AB01> { [  apostrophe, quotedbl, grave ] };
+    key <AB02> { [  q, Q ] };
+    key <AB03> { [  j, J ] };
+    key <AB04> { [  k, K ] };
+    key <AB05> { [  x, X ] };
+    key <AB06> { [  b, B ] };
+    key <AB07> { [  m, M, Insert ] };
+    key <AB08> { [  w, W, Home ] };
+    key <AB09> { [  v, V, End ] };
+    key <AB10> { [  z, Z, Next ] }; // Next is pagedown
 
-    key <BKSL> {        [ backslash,         bar        ]       };
 };
 
