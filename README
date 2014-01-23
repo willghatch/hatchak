@@ -1,0 +1,35 @@
+Hatchak is a customized Dvorak keyboard layout.  It also draws from Programmer's Dvorak (particularly in the arrangement of the numbers).
+
+Written by William Hatch (Thus the name).
+
+Some big differences are the placement of Control keys and the addition of Level3_shift keys.  This necessitates and facilitates the moving of some symbols into shift level 3, and also allows cools things like putting the arrow keys, home, end, pageup, and pagedown as level 3 shift keys so you don't have to move your hand to press them.
+
+It is NOT finalized.  Some of the symbol placement was somewhat arbitrary, and I need to do more research, experimentation, and thinking about their placement.  It is purposely different from Programmer's Dvorak on symbol placement, as I don't like some of those positions.
+
+I've implemented it for xkbd.  It seems like "the way" to do it in X, and it looks like it is also being pulled into Wayland.  And I don't know of any more portable input method.  I may look into ibus later.  But I imagine any implementation for Windows, Mac, Android, etc.  would need to use something completely different anyway.  But who even likes those platforms anyway?  But since I occasionally play with BSD I should give it some love, at least.
+
+Of note may be the fact that I'm just now learning Dvorak, so I'm not actually an experienced user.  But I figured that as long as I'm going to learn a completely new layout, I may as well customize it to match the way I use and want to use the keyboard.
+
+If you have any good ideas, suggestions, or comments let me know!
+
+Notable key placements:
+=======================
+
+Control keys are on Caps Lock and on the quote key.
+Level 3 shift keys are on tab and left bracket key.
+Tab is given by L3+Space.
+Caps Lock is given by L3+Right bracket.
+Tilde and backslash keys I'm reserving for more modifier keys at the moment.
+I moved Alt (left and right) to the control keys (I find them easier to press, though that may just be because I'm more used to using them by touch)
+L3+{h,j,k,l} are the arrow keys, L3+{semicolon, slash} are pageup/down, L3+{<,>} are home and end.
+
+
+Todo/Bugs:
+==========
+
+Only Esc and the main block of keys actually produce anything - I still need to put in the number pad, function keys, arrow keys, etc.
+Any time the key with caps lock is used it toggles caps lock.
+Some programs won't see some L3 shift characters like the arrows and tab (Including eg. Firefox, Intellij).  Seems like it's because they have their own keyboard handling code, so instead of seeing "Tab is pressed" they see "L3 shift and space are pressed".
+Add Greek dead key.
+Think of more cool features to add!
+
