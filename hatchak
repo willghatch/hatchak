@@ -36,7 +36,7 @@ xkb_symbols "hatchak" {
     //modifier_map Meta   { Alt_L, Alt_R };
     modifier_map Mod4   { Super_L, Super_R };
     //modifier_map Super  { Super_L, Super_R };
-    modifier_map Mod2 { ISO_Level3_Shift };
+    modifier_map Mod3 { ISO_Level3_Shift };
     modifier_map Mod5 { ISO_Level5_Shift };
     modifier_map Lock { Caps_Lock };
 
@@ -146,7 +146,7 @@ xkb_symbols "hatchak" {
 
 
 
-    //key <NMLK> {	[ Num_Lock, Num_Lock, Num_Lock, Num_Lock, Num_Lock  ]	};
+    key <NMLK> {	[ Num_Lock, Num_Lock, Num_Lock, Num_Lock, Num_Lock  ]	};
     //modifier_map Mod2   { Num_Lock };
 
     // Fake keys for virtual<->real modifiers mapping:
