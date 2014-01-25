@@ -111,5 +111,76 @@ xkb_symbols "hatchak" {
     key <AB09> { [  v, V, End ] };
     key <AB10> { [  z, Z, Next ] }; // Next is pagedown
 
+// I've put the numbers as the base of the number pad
+// But maybe I'll later want things like KP_Home, KP_Next, etc...
+
+    key <KP7>  { [ KP_7 ] };
+    key <KP8>  { [ KP_8 ] };
+    key <KP9>  { [ KP_9 ] };
+    key <KPMU> { [ KP_Multiply ] };
+
+    key <KP4>  { [ KP_4 ] };
+    key <KP5>  { [ KP_5 ] };
+    key <KP6>  { [ KP_6 ] };
+    key <KPSU> { [ KP_Subtract ] };
+
+    key <KP2>  { [ KP_2 ] };
+    key <KP3>  { [ KP_3 ] };
+    key <KPAD> { [ KP_Add ] };
+   
+    key <KP0>  { [ KP_0 ] };
+    key <KPDL> { [ KP_Decimal ] };
+    key <KPDV> { [ KP_Divide ] };
+
+
+
+// Here are some of the keys outside of the main block... I don't know what
+// I want to do with them yet.
+
+
+
+    // The extra key on many European keyboards:
+    //key <LSGT> {	[ less, greater, bar, brokenbar ] };
+
+
+
+    key <NMLK> {	[ Num_Lock 		]	};
+    modifier_map Mod2   { Num_Lock };
+
+    // Fake keys for virtual<->real modifiers mapping:
+    //key <LVL3> {	[ ISO_Level3_Shift	]	};
+    //key <MDSW> {	[ Mode_switch 		]	};
+    //modifier_map Mod5   { <LVL3>, <MDSW> };
+
+
+    key <OUTP> { [ XF86Display ] };
+    key <KITG> { [ XF86KbdLightOnOff ] };
+    key <KIDN> { [ XF86KbdBrightnessDown ] };
+    key <KIUP> { [ XF86KbdBrightnessUp ] };
+
+
+
+    key <PRSC> {
+	type= "PC_ALT_LEVEL2",
+	symbols[Group1]= [ Print, Sys_Req ]
+    };
+    key <SCLK> {	[  Scroll_Lock		]	};
+    key <PAUS> {
+	type= "PC_CONTROL_LEVEL2",
+	symbols[Group1]= [ Pause, Break ]
+    };
+    key  <INS> {	[  Insert		]	};
+    key <HOME> {	[  Home			]	};
+    key <PGUP> {	[  Prior		]	};
+    key <DELE> {	[  Delete		]	};
+    key  <END> {	[  End			]	};
+    key <PGDN> {	[  Next			]	};
+
+    key   <UP> {	[  Up			]	};
+    key <LEFT> {	[  Left			]	};
+    key <DOWN> {	[  Down			]	};
+    key <RGHT> {	[  Right		]	};
+
+
 };
 
