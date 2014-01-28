@@ -1,0 +1,25 @@
+
+xkb_types "hatchak" {
+    include "complete"
+    
+    virtual_modifiers Super;
+    //virtual_modifiers LSuper;
+    //virtual_modifiers RSuper;
+
+    type "SUPER_ALT" {
+        modifiers = Alt+Super+Shift+LevelThree;
+        map[None] = Level1;
+        map[Shift] = Level2;
+        map[LevelThree] = Level3;
+        map[Shift+LevelThree] = Level4;
+        map[Alt+Super] = Level5;
+        preserve[Shift] = Shift;
+        preserve[Shift+LevelThree] = Shift;
+        level_name[Level1] = "Base";
+        level_name[Level2] = "Shift";
+        level_name[Level3] = "Alt Base";
+        level_name[Level4] = "Shift Alt";
+        level_name[Level5] = "Alt+Super";
+    };
+};
+
