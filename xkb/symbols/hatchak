@@ -22,7 +22,6 @@ xkb_symbols "hatchak" {
     key <AC11>  {   [ Control_R ]   };
     key <LCTL>  {   [ Alt_L     ]   };
     key <RCTL>  {   [ Alt_R     ]   };
-    // I'll reserve the original alt keys for other modifiers
     key <LALT>  {   [ Super_L     ]   };
     key <RALT>  {   [ Super_R     ]   };
     key <LWIN>  {   [ Hyper_L   ]   };
@@ -31,6 +30,9 @@ xkb_symbols "hatchak" {
     key <TAB>   {   [ ISO_Level3_Shift ] };
 //    key <TLDE>  {   [ ISO_Level5_Shift ] };
 //    key <BKSL>  {   [ ISO_Level5_Shift ] };
+    // Menu can be caps lock for now, until I can get it into L3 shift
+    // without having it toggle always...
+    key <MENU>  {   [ Caps_Lock ] };
 
     // Fake keys for virtual<->real modifiers mapping:
     //key <LVL3> {	[ ISO_Level3_Shift	]	};
@@ -126,9 +128,10 @@ xkb_symbols "hatchak" {
     key <KP9>  { [ KP_9 ] };
     key <KPMU> { [ KP_Multiply ] };
 
-    key <KP4>  { [ KP_4 ] };
-    key <KP5>  { [ KP_5 ] };
-    key <KP6>  { [ KP_6 ] };
+    // Add some handy parens and E for using calculators
+    key <KP4>  { [ KP_4, parenleft ] };
+    key <KP5>  { [ KP_5, parenright ] };
+    key <KP6>  { [ KP_6, E ] };
     key <KPSU> { [ KP_Subtract ] };
 
     key <KP1>  { [ KP_1 ] };
@@ -182,7 +185,8 @@ xkb_symbols "hatchak" {
     key <RGHT> {	[  Right		]	};
 
 
-// Function Keys, taken from srvr_ctrl in the standard layouts
+// Function Keys, taken from srvr_ctrl, but modified to use super and alt
+// for VT switching - so they're on the same keys as other VTs in qwerty.
     key <FK01> {
 	type="SUPER_ALT",
 	symbols[Group1]= [ F1, F1, F1, F1, XF86_Switch_VT_1 ]
