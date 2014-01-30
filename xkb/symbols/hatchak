@@ -67,8 +67,8 @@ xkb_symbols "hatchak" {
     // I'm reserving the tilde key for another modifier
     //key <TLDE> { [ grave, asciitilde ] };
     key <AE01> { [ semicolon, colon ] };
-    key <AE02> { [ braceleft, 7 ] };
-    key <AE03> { [ braceright, 5 ] };
+    key <AE02> { [ braceleft, 7, bracketleft ] };
+    key <AE03> { [ braceright, 5, bracketright ] };
     key <AE04> { [ dollar, 3 ] };
     key <AE05> { [ plus, 1 ] };
     key <AE06> { [ equal, 9 ] };
