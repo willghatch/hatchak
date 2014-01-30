@@ -6,7 +6,7 @@ Some big differences are the placement of Control keys and the addition of Level
 
 It is NOT finalized.  Some of the symbol placement was somewhat arbitrary, and I need to do more research, experimentation, and thinking about their placement.  It is purposely different from Programmer's Dvorak on symbol placement, as I don't like some of those positions.
 
-I've implemented it for xkbd.  It seems like "the way" to do it in X, and it looks like it is also being pulled into Wayland.  And I don't know of any more portable input method.  I may look into ibus later.  But I imagine any implementation for Windows, Mac, Android, etc.  would need to use something completely different anyway.  But who even likes those platforms anyway?  But since I occasionally play with BSD I should give it some love, at least.
+I've implemented it for xkbd.  It seems like "the way" to do it in X, and it looks like it is also being pulled into Wayland.  And I don't know of any more portable input method.  I may look into ibus later.  But I imagine any implementation for Windows, Mac, Android, etc.  would need to use something completely different anyway.  But who even likes those platforms anyway?  So this works on Linux, and presumably any unix with X and XKB.
 
 Of note may be the fact that I'm just now learning Dvorak, so I'm not actually an experienced user.  But I figured that as long as I'm going to learn a completely new layout, I may as well customize it to match the way I use and want to use the keyboard.
 
@@ -17,19 +17,19 @@ Notable key placements:
 
 Control keys are on Caps Lock and on the quote key.
 Level 3 shift keys are on tab and left bracket key.
-Tab is given by L3+Space.
-Caps Lock is given by L3+Right bracket.
+Tab is given by L3+Space.  Or right bracket, for now at least.
+Caps Lock is given by L3+Right bracket.  After I fix that - for now it's the menu key.
 Tilde and backslash keys I'm reserving for more modifier keys at the moment.
 I moved Alt (left and right) to the control keys (I find them easier to press, though that may just be because I'm more used to using them by touch)
+Super keys are on alt.
 L3+{h,j,k,l} are the arrow keys, L3+{semicolon, slash} are pageup/down, L3+{<,>} are home and end.
 
 
 Todo/Bugs:
 ==========
 
-Only Esc and the main block of keys actually produce anything - I still need to put in the number pad, function keys, arrow keys, etc.
-Any time the key with caps lock is used it toggles caps lock.
-Some programs won't see some L3 shift characters like the arrows and tab (Including eg. Firefox, Intellij).  Seems like it's because they have their own keyboard handling code, so instead of seeing "Tab is pressed" they see "L3 shift and space are pressed".
+Any time the key with caps lock is used it toggles caps lock. - For now I've moved caps lock to the menu key, since I don't yet know what I want to do with that.
+Some programs won't see some L3 shift characters like the arrows and tab (Including eg. Firefox, Intellij).  Seems like it's because they have their own keyboard handling code, so instead of seeing "Tab is pressed" they see "L3 shift and space are pressed".  Intellij will see printing characters from the L3-shifted keys, just not non-printers.  Firefox only has problems with certain keys, most notably space, due to a firefox bug.  But a friend and I tracked it down, so maybe we'll submit a patch.
 Add Greek dead key.
 Think of more cool features to add!
 
