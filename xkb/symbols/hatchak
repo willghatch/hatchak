@@ -67,8 +67,8 @@ xkb_symbols "hatchak" {
     // I'm reserving the tilde key for another modifier
     //key <TLDE> { [ grave, asciitilde ] };
     key <AE01> { [ semicolon, colon ] };
-    key <AE02> { [ braceleft, 7, bracketleft ] };
-    key <AE03> { [ braceright, 5, bracketright ] };
+    key <AE02> { [ braceleft, 7 ] };
+    key <AE03> { [ braceright, 5 ] };
     key <AE04> { [ dollar, 3 ] };
     key <AE05> { [ plus, 1 ] };
     key <AE06> { [ equal, 9 ] };
@@ -84,22 +84,22 @@ xkb_symbols "hatchak" {
     key <AD02> { [ comma, less, question ] };
     key <AD03> { [ period, greater, exclam ] };
     key <AD04> { [ p, P, ampersand ] };
-    key <AD05> { [ y, Y ] };
+    key <AD05> { [ y, Y, asciicircum ] };
     key <AD06> { [ f, F ] };
     // Todo - add greek to G
     key <AD07> { [ g, G ] };
     key <AD08> { [ c, C ] };
-    key <AD09> { [ r, R ] };
+    key <AD09> { [ r, R, Multi_key ] };
     key <AD10> { [ l, L ] };
     // Note AD11 is a modifier key
     key <AD12> { [ Tab, ISO_Left_Tab ] }; // TODO - add caps lock here
     // I'm reserving backslash for another modifier
 
     // Home Row
-    key <AC01> { [ a, A, backslash ] };
-    key <AC02> { [ o, O, at ] };
-    key <AC03> { [ e, E, asciicircum ] };
-    key <AC04> { [ u, U, Multi_key ] };
+    key <AC01> { [ a, A, at ] };
+    key <AC02> { [ o, O, bracketleft ] };
+    key <AC03> { [ e, E, bracketright ] };
+    key <AC04> { [ u, U, backslash ] };
     key <AC05> { [ i, I ] };
     key <AC06> { [ d, D, Left ] };
     key <AC07> { [ h, H, Down ] };
@@ -126,20 +126,20 @@ xkb_symbols "hatchak" {
     key <KP7>  { [ KP_7 ] };
     key <KP8>  { [ KP_8 ] };
     key <KP9>  { [ KP_9 ] };
-    key <KPMU> { [ KP_Multiply ] };
+    key <KPMU> { [ KP_Multiply, asciicircum ] };
 
     // Add some handy parens and E for using calculators
     key <KP4>  { [ KP_4, parenleft ] };
     key <KP5>  { [ KP_5, parenright ] };
     key <KP6>  { [ KP_6, E ] };
-    key <KPSU> { [ KP_Subtract ] };
+    key <KPSU> { [ KP_Subtract, BackSpace ] };
 
     key <KP1>  { [ KP_1 ] };
     key <KP2>  { [ KP_2 ] };
     key <KP3>  { [ KP_3 ] };
     key <KPAD> { [ KP_Add ] };
    
-    key <KP0>  { [ KP_0 ] };
+    key <KP0>  { [ KP_0, space ] };
     key <KPDL> { [ KP_Decimal ] };
     key <KPDV> { [ KP_Divide ] };
 
