@@ -34,20 +34,15 @@ xkb_symbols "hatchak" {
     // without having it toggle always...
     key <MENU>  { [ Caps_Lock ] };
 
-    // Fake keys for virtual<->real modifiers mapping:
-    //key <LVL3> { [ ISO_Level3_Shift ] };
-    //key <MDSW> { [ Mode_switch ] };
-    //modifier_map Mod5   { <LVL3>, <MDSW> };
-
 
     modifier_map Shift { Shift_L, Shift_R };
     modifier_map Control { Control_L, Control_R };
     modifier_map Lock { Caps_Lock };
     modifier_map Mod1 { Alt_L, Alt_R };
-//    modifier_map Mod2 { Num_Lock };
-    modifier_map Mod3 { ISO_Level3_Shift };
+    modifier_map Mod2 { ISO_Level3_Shift };
+    modifier_map Mod3 { ISO_Level5_Shift };
     modifier_map Mod4 { Super_L, Super_R };
-    modifier_map Mod5 { ISO_Level5_Shift };
+    modifier_map Mod5 { Hyper_L, Hyper_R };
 
 
 // Other one level keys
@@ -174,14 +169,14 @@ xkb_symbols "hatchak" {
        type= "PC_CONTROL_LEVEL2",
        symbols[Group1]= [ Pause, Break ]
     };
-    key  <INS> { [  Insert  ] };
+    key <INS>  { [  Insert  ] };
     key <HOME> { [  Home    ] };
     key <PGUP> { [  Prior   ] };
     key <DELE> { [  Delete  ] };
-    key  <END> { [  End     ] };
+    key <END>  { [  End     ] };
     key <PGDN> { [  Next    ] };
 
-    key   <UP> { [  Up      ] };
+    key <UP>   { [  Up      ] };
     key <LEFT> { [  Left    ] };
     key <DOWN> { [  Down    ] };
     key <RGHT> { [  Right   ] };
