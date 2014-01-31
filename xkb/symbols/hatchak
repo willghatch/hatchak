@@ -39,16 +39,15 @@ xkb_symbols "hatchak" {
     //key <MDSW> { [ Mode_switch ] };
     //modifier_map Mod5   { <LVL3>, <MDSW> };
 
-    key <NMLK> { [ Num_Lock, Num_Lock, Num_Lock, Num_Lock, Num_Lock  ] };
 
     modifier_map Shift { Shift_L, Shift_R };
     modifier_map Control { Control_L, Control_R };
+    modifier_map Lock { Caps_Lock };
     modifier_map Mod1 { Alt_L, Alt_R };
-    modifier_map Mod2 { Num_Lock };
+//    modifier_map Mod2 { Num_Lock };
     modifier_map Mod3 { ISO_Level3_Shift };
     modifier_map Mod4 { Super_L, Super_R };
     modifier_map Mod5 { ISO_Level5_Shift };
-    modifier_map Lock { Caps_Lock };
 
 
 // Other one level keys
@@ -123,25 +122,28 @@ xkb_symbols "hatchak" {
 // I've put the numbers as the base of the number pad
 // But maybe I'll later want things like KP_Home, KP_Next, etc...
 
+    // TODO - find a use for this.  I don't want numlock on my layout.  I've always disliked it.
+    //key <NMLK> { [ Num_Lock, Num_Lock, Num_Lock, Num_Lock, Num_Lock  ] };
+    key <KPDV> { [ KP_Divide ] };
+    key <KPMU> { [ KP_Multiply, asciicircum ] };
+    key <KPSU> { [ KP_Subtract, BackSpace ] };
+
     key <KP7>  { [ KP_7 ] };
     key <KP8>  { [ KP_8 ] };
     key <KP9>  { [ KP_9 ] };
-    key <KPMU> { [ KP_Multiply, asciicircum ] };
+    key <KPAD> { [ KP_Add ] };
 
     // Add some handy parens and E for using calculators
     key <KP4>  { [ KP_4, parenleft ] };
     key <KP5>  { [ KP_5, parenright ] };
     key <KP6>  { [ KP_6, E ] };
-    key <KPSU> { [ KP_Subtract, BackSpace ] };
 
     key <KP1>  { [ KP_1 ] };
     key <KP2>  { [ KP_2 ] };
     key <KP3>  { [ KP_3 ] };
-    key <KPAD> { [ KP_Add ] };
    
     key <KP0>  { [ KP_0, space ] };
     key <KPDL> { [ KP_Decimal ] };
-    key <KPDV> { [ KP_Divide ] };
 
     key <KPEN> { [ KP_Enter ] };
 
