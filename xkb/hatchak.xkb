@@ -1,0 +1,8 @@
+xkb_keymap {
+    xkb_keycodes    { include "evdev+aliases(qwerty)" };
+    xkb_types       { include "hatchak" };
+    xkb_compat      { include "complete" };
+    xkb_symbols     { include "hatchak" };
+    xkb_geometry    { include "pc(pc104)" };
+};
+
