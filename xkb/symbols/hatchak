@@ -77,42 +77,41 @@ xkb_symbols "hatchak" {
     key <AD01> { [ minus, underscore, bar ] };
     key <AD02> { [ comma, less, question ] };
     key <AD03> { [ period, greater, exclam ] };
-    key <AD04> { [ p, P, ampersand ] };
-    key <AD05> { [ y, Y, asciicircum ] };
-    key <AD06> { [ f, F ] };
-    // Todo - add greek to G
-    key <AD07> { [ g, G ] };
-    key <AD08> { [ c, C ] };
-    key <AD09> { [ r, R, Multi_key ] };
-    key <AD10> { [ l, L ] };
+    key <AD04> { [ p, P, ampersand ], [ Greek_pi, Greek_PI ] };
+    key <AD05> { [ y, Y, asciicircum ], [ Greek_upsilon, Greek_UPSILON ] };
+    key <AD06> { [ f, F ], [ Greek_phi, Greek_PHI ] };
+    key <AD07> { [ g, G, ISO_Group_Latch ], [ Greek_gamma, Greek_GAMMA ] };
+    key <AD08> { [ c, C, Multi_key ], [ Greek_xi, Greek_XI ] };
+    key <AD09> { [ r, R, dead_grave ], [ Greek_rho, Greek_RHO ] };
+    key <AD10> { [ l, L ], [ Greek_lamda, Greek_LAMDA ] };
     // Note AD11 is a modifier key
     key <AD12> { [ Tab, ISO_Left_Tab ] }; // TODO - add caps lock here
     // I'm reserving backslash for another modifier
 
     // Home Row
-    key <AC01> { [ a, A, at ] };
-    key <AC02> { [ o, O, bracketleft ] };
-    key <AC03> { [ e, E, bracketright ] };
-    key <AC04> { [ u, U, backslash ] };
-    key <AC05> { [ i, I ] };
-    key <AC06> { [ d, D, Left ] };
-    key <AC07> { [ h, H, Down ] };
-    key <AC08> { [ t, T, Up ] };
-    key <AC09> { [ n, N, Right ] };
-    key <AC10> { [ s, S, Prior ] }; // Prior is pageup
+    key <AC01> { [ a, A, at ], [ Greek_alpha, Greek_ALPHA ] };
+    key <AC02> { [ o, O, bracketleft ], [ Greek_omicron, Greek_OMICRON ] };
+    key <AC03> { [ e, E, bracketright ], [ Greek_epsilon, Greek_EPSILON ] };
+    key <AC04> { [ u, U, backslash ], [ Greek_omega, Greek_OMEGA ] };
+    key <AC05> { [ i, I ], [ Greek_iota, Greek_IOTA ] };
+    key <AC06> { [ d, D, Left ], [ Greek_delta, Greek_DELTA ] };
+    key <AC07> { [ h, H, Down ], [ Greek_theta, Greek_THETA ] };
+    key <AC08> { [ t, T, Up ], [ Greek_tau, Greek_TAU ] };
+    key <AC09> { [ n, N, Right ], [ Greek_nu, Greek_NU ] };
+    key <AC10> { [ s, S, Prior ], [ Greek_sigma, Greek_SIGMA ] }; // Prior is pageup
     // Note the lack of AC11 - it's a mod key now
 
     // Lower Row
     key <AB01> { [ apostrophe, quotedbl, grave ] };
-    key <AB02> { [ q, Q ] };
-    key <AB03> { [ j, J, Escape ] };
-    key <AB04> { [ k, K ] };
-    key <AB05> { [ x, X ] };
-    key <AB06> { [ b, B ] };
-    key <AB07> { [ m, M, Insert ] };
-    key <AB08> { [ w, W, Home ] };
-    key <AB09> { [ v, V, End ] };
-    key <AB10> { [ z, Z, Next ] }; // Next is pagedown
+    key <AB02> { [ q, Q ], [ Greek_psi, Greek_PSI ] };
+    key <AB03> { [ j, J, Escape ], [ Greek_eta, Greek_ETA ] };
+    key <AB04> { [ k, K ], [ Greek_kappa, Greek_KAPPA ] };
+    key <AB05> { [ x, X ], [ Greek_chi, Greek_CHI ] };
+    key <AB06> { [ b, B ], [ Greek_beta, Greek_BETA ] };
+    key <AB07> { [ m, M, Insert ], [ Greek_mu, Greek_MU ] };
+    key <AB08> { [ w, W, Home ], [] };
+    key <AB09> { [ v, V, End ], [] };
+    key <AB10> { [ z, Z, Next ], [ Greek_zeta, Greek_ZETA ] }; // Next is pagedown
 
 // I've put the numbers as the base of the number pad
 // But maybe I'll later want things like KP_Home, KP_Next, etc...
