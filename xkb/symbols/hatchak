@@ -41,7 +41,7 @@ xkb_symbols "hatchak" {
 //    key <BKSL>  { [ ISO_Level5_Shift ] };
     // Menu can be caps lock for now, until I can get it into L3 shift
     // without having it toggle always...
-    key <MENU>  { [ Caps_Lock ] };
+    //key <MENU>  { [ Caps_Lock ] };
 
 
     modifier_map Shift { Shift_L, Shift_R };
@@ -94,7 +94,7 @@ xkb_symbols "hatchak" {
     key <AD09> { [ r, R, dead_grave ], [ Greek_rho, Greek_RHO ] };
     key <AD10> { [ l, L ], [ Greek_lamda, Greek_LAMDA ] };
     // Note AD11 is a modifier key
-    key <AD12> { [ Tab, ISO_Left_Tab ] }; // TODO - add caps lock here
+    key <AD12> { [ Tab, ISO_Left_Tab, Caps_Lock ] };
     // I'm reserving backslash for another modifier
 
     // Home Row
