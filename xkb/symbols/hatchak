@@ -7,6 +7,15 @@
 // well as convenient arrow keys, end, home, and pageup/down.
 
 
+// TODO
+// I have put all sorts of symbols in L3/L4, but I may want to put in some unicode
+// ones later... mostly for math symbols.  Although I really don't know when I would
+// use them.
+//
+// I may put a keypad on gcr, htn, mwv, in L5 (sending the keypad versions for
+// programs that can tell the difference).
+//
+// Also, I should clean up this file and align things...
 
 xkb_symbols "hatchak" {
 
@@ -60,25 +69,25 @@ xkb_symbols "hatchak" {
     // Number Row
     // I'm reserving the tilde key for another modifier
     //key <TLDE> { [ grave, asciitilde ] };
-    key <AE01> { [ equal, asciitilde ] };
-    key <AE02> { [ braceleft, 7 ] };
-    key <AE03> { [ braceright, 5 ] };
-    key <AE04> { [ dollar, 3 ] };
-    key <AE05> { [ semicolon, 1 ] };
-    key <AE06> { [ colon, 9 ] };
-    key <AE07> { [ numbersign, 0 ] };
-    key <AE08> { [ slash, 2 ] };
-    key <AE09> { [ parenleft, 4 ] };
-    key <AE10> { [ parenright, 6 ] };
-    key <AE11> { [ asterisk, 8 ] };
-    key <AE12> { [ plus, percent ] };
+    key <AE01> { [ equal, asciitilde, notequal, approxeq ] };
+    key <AE02> { [ braceleft, 7, guillemotleft ] };
+    key <AE03> { [ braceright, 5, guillemotright ] };
+    key <AE04> { [ dollar, 3, cent, EuroSign ] };
+    key <AE05> { [ semicolon, 1, sterling, yen ] };
+    key <AE06> { [ colon, 9, copyright ] };
+    key <AE07> { [ numbersign, 0, degree, infinity ] };
+    key <AE08> { [ slash, 2, division ] };
+    key <AE09> { [ parenleft, 4, ellipsis ] };
+    key <AE10> { [ parenright, 6, paragraph, section ] };
+    key <AE11> { [ asterisk, 8, enfilledcircbullet, multiply ] };
+    key <AE12> { [ plus, percent, plusminus ] };
 
     // Upper Row
     key <AD01> { [ minus, underscore, bar ] };
-    key <AD02> { [ comma, less, question ] };
-    key <AD03> { [ period, greater, exclam ] };
-    key <AD04> { [ p, P, ampersand ], [ Greek_pi, Greek_PI ] };
-    key <AD05> { [ y, Y, asciicircum ], [ Greek_upsilon, Greek_UPSILON ] };
+    key <AD02> { [ comma, less, question, questiondown ] };
+    key <AD03> { [ period, greater, exclam, exclamdown ] };
+    key <AD04> { [ p, P, ampersand, trademark ], [ Greek_pi, Greek_PI ] };
+    key <AD05> { [ y, Y, asciicircum, registered ], [ Greek_upsilon, Greek_UPSILON ] };
     key <AD06> { [ f, F ], [ Greek_phi, Greek_PHI ] };
     key <AD07> { [ g, G, ISO_Group_Latch ], [ Greek_gamma, Greek_GAMMA ] };
     key <AD08> { [ c, C, Multi_key ], [ Greek_xi, Greek_XI ] };
@@ -94,10 +103,10 @@ xkb_symbols "hatchak" {
     key <AC03> { [ e, E, bracketright ], [ Greek_epsilon, Greek_EPSILON ] };
     key <AC04> { [ u, U, backslash ], [ Greek_omega, Greek_OMEGA ] };
     key <AC05> { [ i, I ], [ Greek_iota, Greek_IOTA ] };
-    key <AC06> { [ d, D, Left ], [ Greek_delta, Greek_DELTA ] };
-    key <AC07> { [ h, H, Down ], [ Greek_theta, Greek_THETA ] };
-    key <AC08> { [ t, T, Up ], [ Greek_tau, Greek_TAU ] };
-    key <AC09> { [ n, N, Right ], [ Greek_nu, Greek_NU ] };
+    key <AC06> { [ d, D, Left, leftarrow ], [ Greek_delta, Greek_DELTA ] };
+    key <AC07> { [ h, H, Down, downarrow ], [ Greek_theta, Greek_THETA ] };
+    key <AC08> { [ t, T, Up, uparrow ], [ Greek_tau, Greek_TAU ] };
+    key <AC09> { [ n, N, Right, rightarrow ], [ Greek_nu, Greek_NU ] };
     key <AC10> { [ s, S, Prior ], [ Greek_sigma, Greek_SIGMA ] }; // Prior is pageup
     // Note the lack of AC11 - it's a mod key now
 
@@ -112,6 +121,7 @@ xkb_symbols "hatchak" {
     key <AB08> { [ w, W, Home ], [] };
     key <AB09> { [ v, V, End ], [] };
     key <AB10> { [ z, Z, Next ], [ Greek_zeta, Greek_ZETA ] }; // Next is pagedown
+
 
 // I've put the numbers as the base of the number pad
 // But maybe I'll later want things like KP_Home, KP_Next, etc...
