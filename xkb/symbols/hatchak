@@ -39,10 +39,10 @@ xkb_symbols "hatchak" {
     modifier_map Control { Control_L, Control_R };
     modifier_map Lock { Caps_Lock };
     modifier_map Mod1 { Alt_L, Alt_R };
-    modifier_map Mod2 { ISO_Level3_Shift };
-    modifier_map Mod3 { ISO_Level5_Shift };
+    modifier_map Mod3 { ISO_Level3_Shift };
+    modifier_map Mod5 { ISO_Level5_Shift };
     modifier_map Mod4 { Super_L, Super_R };
-    modifier_map Mod5 { Hyper_L, Hyper_R };
+    modifier_map Mod2 { Hyper_L, Hyper_R };
 
 
 // Other one level keys
