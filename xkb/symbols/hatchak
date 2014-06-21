@@ -60,18 +60,18 @@ xkb_symbols "hatchak" {
     // Number Row
     // I'm reserving the tilde key for another modifier
     //key <TLDE> { [ grave, asciitilde ] };
-    key <AE01> { [ semicolon, colon ] };
+    key <AE01> { [ equal, asciitilde ] };
     key <AE02> { [ braceleft, 7 ] };
     key <AE03> { [ braceright, 5 ] };
     key <AE04> { [ dollar, 3 ] };
-    key <AE05> { [ plus, 1 ] };
-    key <AE06> { [ equal, 9 ] };
+    key <AE05> { [ semicolon, 1 ] };
+    key <AE06> { [ colon, 9 ] };
     key <AE07> { [ numbersign, 0 ] };
     key <AE08> { [ slash, 2 ] };
     key <AE09> { [ parenleft, 4 ] };
     key <AE10> { [ parenright, 6 ] };
     key <AE11> { [ asterisk, 8 ] };
-    key <AE12> { [ asciitilde, percent ] };
+    key <AE12> { [ plus, percent ] };
 
     // Upper Row
     key <AD01> { [ minus, underscore, bar ] };
