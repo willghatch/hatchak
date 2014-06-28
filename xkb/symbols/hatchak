@@ -1,133 +1,227 @@
 // Hatchak keyboard layout
-// It' largely taken from Programmer's Dvorak, but
-// has more convenient modifier keys.
-// Control is in a prominent place on the left and right (capsLock and quote),
-// as are Level3_Shift keys (tab and leftBracket).
-// Various symbols have been put into level3 shift, as
-// well as convenient arrow keys, end, home, and pageup/down.
 
-
-// TODO
-// I have put all sorts of symbols in L3/L4, but I may want to put in some unicode
+// I have put all sorts of symbols in L3/L4, etc, but I may want to put in some unicode
 // ones later... mostly for math symbols.  Although I really don't know when I would
 // use them.
-//
-// I may put a keypad on gcr, htn, mwv, in L5 (sending the keypad versions for
-// programs that can tell the difference).
-//
-// Also, I should clean up this file and align things...
+
 
 xkb_symbols "hatchak" {
 
     name[Group1]= "Hatchak-g1";
 
 
-// Modifier Keys
-    key.type = "ONE_LEVEL";
-    key <LFSH>  { [ Shift_L   ] };
-    key <RTSH>  { [ Shift_R   ] };
-    key <CAPS>  { [ Control_L ] };
-    // Note, that the right control is the quote key
-    key <AC11>  { [ Control_R ] };
-    key <LCTL>  { [ Alt_L     ] };
-    key <RCTL>  { [ Alt_R     ] };
-    key <LALT>  { [ Super_L   ] };
-    key <RALT>  { [ Super_R   ] };
-    key <LWIN>  { [ Hyper_L   ] };
-    key <RWIN>  { [ Hyper_R   ] };
-    key <AD11>  { [ ISO_Level3_Shift ] };
-    key <TAB>   { [ ISO_Level3_Shift ] };
-//    key <TLDE>  { [ ISO_Level5_Shift ] };
-//    key <BKSL>  { [ ISO_Level5_Shift ] };
-    // Menu can be caps lock for now, until I can get it into L3 shift
-    // without having it toggle always...
-    //key <MENU>  { [ Caps_Lock ] };
-
-
-    modifier_map Shift { Shift_L, Shift_R };
+// Mod key assignment:
+    // L3 Shift, being most important after shift, is on Mod5 because
+    // some QT bug eats it if it's on anything else.
+    // Alt and Super are on Mods 1 and 4 respectively, because that's their
+    // normal placement.
+    modifier_map Mod1    { Alt_L, Alt_R };
+    modifier_map Mod5    { ISO_Level3_Shift };
+    modifier_map Mod3    { ISO_Level5_Shift };
+    modifier_map Mod4    { Super_L, Super_R };
+    modifier_map Mod2    { Hyper_L, Hyper_R };
+    modifier_map Shift   { Shift_L, Shift_R };
     modifier_map Control { Control_L, Control_R };
-    modifier_map Lock { Caps_Lock };
-    modifier_map Mod1 { Alt_L, Alt_R };
-    modifier_map Mod3 { ISO_Level3_Shift };
-    modifier_map Mod5 { ISO_Level5_Shift };
-    modifier_map Mod4 { Super_L, Super_R };
-    modifier_map Mod2 { Hyper_L, Hyper_R };
+    modifier_map Lock    { Caps_Lock };
 
 
-// Other one level keys
-    key.type = "ONE_LEVEL";
-    key <ESC>   { [ Escape ] };
-    key <RTRN>  { [ Return ] };
 
-// Two level keys
-    key.type = "TWO_LEVEL";
-    key <BKSP>  { [ BackSpace, Delete ] };
 
-// Normal keys
+// Most keys are eight level type
     key.type = "EIGHT_LEVEL";
+
+    key <ESC>  { type="ONE_LEVEL", [ Escape ] };
+
+// Number Row
+    key <TLDE> { type="ONE_LEVEL", [ Alt_L ] };
+    key <AE01> { type="ONE_LEVEL", [ Super_L ] };
+    key <AE02> { type="ONE_LEVEL", [ Hyper_L ] };
+    key <AE03> { [ equal, notequal, approxequal ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AE04> { [ dollar, cent, EuroSign, sterling, yen ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AE05> { [ semicolon, infinity ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AE06> { [ colon, ellipsis, paragraph, section ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AE07> { [ backslash, degree, trademark, registered, copyright ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AE08> { [ slash, division, multiply ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AE09> { [ parenleft, Multi_key ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AE10> { [ parenright, dead_grave ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AE11> { type="ONE_LEVEL", [ Hyper_R ] };
+    key <AE12> { type="ONE_LEVEL", [ Super_R ] };
+    key <BKSP> { type="TWO_LEVEL", [ BackSpace, Delete ] };
+
+// Upper Row
+    key <TAB>  { type="ONE_LEVEL", [ Control_L ] };
+    key <AD01> { [ minus, underscore, bar, brokenbar ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AD02> { [ comma, exclam, less, exclamdown ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AD03> { [ period, question, greater, questiondown ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AD04> { [ p, P, percent ], 
+                 [ Greek_pi, Greek_PI ], 
+                 [], 
+                 [] };
+    key <AD05> { [ y, Y ], 
+                 [ Greek_upsilon, Greek_UPSILON ], 
+                 [], 
+                 [] };
+    key <AD06> { [ f, F, asciicircum ], 
+                 [ Greek_phi, Greek_PHI ], 
+                 [], 
+                 [] };
+    key <AD07> { [ g, G, 7, NoSymbol, ISO_Group_Latch ], 
+                 [ Greek_gamma, Greek_GAMMA ], 
+                 [], 
+                 [] };
+    key <AD08> { [ c, C, 8, NoSymbol, Home ], 
+                 [ Greek_xi, Greek_XI ], 
+                 [], 
+                 [] };
+    key <AD09> { [ r, R, 9, NoSymbol, End ], 
+                 [ Greek_rho, Greek_RHO ], 
+                 [], 
+                 [] };
+    key <AD10> { [ l, L, asciitilde, notsign, Prior ], // Prior is pageup
+                 [ Greek_lamda, Greek_LAMDA ], 
+                 [], 
+                 [] };
+    key <AD11> { type="ONE_LEVEL", [ Control_R ] };
+    key <AD12> { type="ONE_LEVEL", [ Alt_R ] };
+    key <BKSL> { [ Tab, ISO_Left_Tab, Caps_Lock ] };
+
+// Home Row
+    key <CAPS> { type="ONE_LEVEL", [ ISO_Level3_Shift ] };
+    key <AC01> { [ a, A, at ], 
+                 [ Greek_alpha, Greek_ALPHA ], 
+                 [], 
+                 [] };
+    key <AC02> { [ o, O, bracketleft, guillemotleft ], 
+                 [ Greek_omicron, Greek_OMICRON ], 
+                 [], 
+                 [] };
+    key <AC03> { [ e, E, bracketright, guillemotright ], 
+                 [ Greek_epsilon, Greek_EPSILON ], 
+                 [], 
+                 [] };
+    key <AC04> { [ u, U, numbersign ], 
+                 [ Greek_omega, Greek_OMEGA ], 
+                 [], 
+                 [] };
+    key <AC05> { [ i, I, ampersand ], 
+                 [ Greek_iota, Greek_IOTA ], 
+                 [], 
+                 [] };
+    key <AC06> { [ d, D, asterisk, enfilledcircbullet, Left, leftarrow ], 
+                 [ Greek_delta, Greek_DELTA ], 
+                 [], 
+                 [] };
+    key <AC07> { [ h, H, 4, NoSymbol, Down, downarrow ], 
+                 [ Greek_theta, Greek_THETA ], 
+                 [], 
+                 [] };
+    key <AC08> { [ t, T, 5, NoSymbol, Up, uparrow ], 
+                 [ Greek_tau, Greek_TAU ], 
+                 [], 
+                 [] };
+    key <AC09> { [ n, N, 6, NoSymbol, Right, rightarrow ], 
+                 [ Greek_nu, Greek_NU ], 
+                 [], 
+                 [] };
+    key <AC10> { [ s, S, plus, plusminus, Next ], // Next is pagedown
+                 [ Greek_sigma, Greek_SIGMA ], 
+                 [], 
+                 [] };
+    key <AC11> { type="ONE_LEVEL", [ ISO_Level3_Shift ] };
+    key <RTRN> { type="ONE_LEVEL", [ Return ] };
+
+// Lower Row
+    key <LFSH> { type="ONE_LEVEL", [ Shift_L ] };
+    key <AB01> { [ apostrophe, quotedbl, grave ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AB02> { [ q, Q, braceleft ], 
+                 [ Greek_psi, Greek_PSI ], 
+                 [], 
+                 [] };
+    key <AB03> { [ j, J, braceright ], 
+                 [ Greek_eta, Greek_ETA ], 
+                 [], 
+                 [] };
+    key <AB04> { [ k, K, Escape ], 
+                 [ Greek_kappa, Greek_KAPPA ], 
+                 [], 
+                 [] };
+    key <AB05> { [ x, X ], 
+                 [ Greek_chi, Greek_CHI ], 
+                 [], 
+                 [] };
+    key <AB06> { [ b, B, 0 ], 
+                 [ Greek_beta, Greek_BETA ], 
+                 [], 
+                 [] };
+    key <AB07> { [ m, M, 1 ], 
+                 [ Greek_mu, Greek_MU ], 
+                 [], 
+                 [] };
+    key <AB08> { [ w, W, 2 ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AB09> { [ v, V, 3 ], 
+                 [], 
+                 [], 
+                 [] };
+    key <AB10> { [ z, Z, NoSymbol, NoSymbol, Insert ], 
+                 [ Greek_zeta, Greek_ZETA ], 
+                 [], 
+                 [] };
+    key <RTSH> { type="ONE_LEVEL", [ Shift_R ] };
+
+// Space Row
+    key <LCTL> { type="ONE_LEVEL", [ ISO_Level5_Shift ] };
+    //key <LWIN> { [] };
+    key <LALT> { [ Super_L ] }; // For VT-switching
     key <SPCE> { [ space, space, Tab, ISO_Left_Tab ] };
-    // Number Row
-    // I'm reserving the tilde key for another modifier
-    //key <TLDE> { [ grave, asciitilde ] };
-    key <AE01> { [ equal, asciitilde, notequal, approxeq ] };
-    key <AE02> { [ braceleft, 7, guillemotleft ] };
-    key <AE03> { [ braceright, 5, guillemotright ] };
-    key <AE04> { [ dollar, 3, cent, EuroSign ] };
-    key <AE05> { [ semicolon, 1, sterling, yen ] };
-    key <AE06> { [ colon, 9, copyright ] };
-    key <AE07> { [ numbersign, 0, degree, infinity ] };
-    key <AE08> { [ slash, 2, division ] };
-    key <AE09> { [ parenleft, 4, ellipsis ] };
-    key <AE10> { [ parenright, 6, paragraph, section ] };
-    key <AE11> { [ asterisk, 8, enfilledcircbullet, multiply ] };
-    key <AE12> { [ plus, percent, plusminus ] };
-
-    // Upper Row
-    key <AD01> { [ minus, underscore, bar ] };
-    key <AD02> { [ comma, less, question, questiondown ] };
-    key <AD03> { [ period, greater, exclam, exclamdown ] };
-    key <AD04> { [ p, P, ampersand, trademark ], [ Greek_pi, Greek_PI ] };
-    key <AD05> { [ y, Y, asciicircum, registered ], [ Greek_upsilon, Greek_UPSILON ] };
-    key <AD06> { [ f, F ], [ Greek_phi, Greek_PHI ] };
-    key <AD07> { [ g, G, ISO_Group_Latch ], [ Greek_gamma, Greek_GAMMA ] };
-    key <AD08> { [ c, C, Multi_key ], [ Greek_xi, Greek_XI ] };
-    key <AD09> { [ r, R, dead_grave ], [ Greek_rho, Greek_RHO ] };
-    key <AD10> { [ l, L ], [ Greek_lamda, Greek_LAMDA ] };
-    // Note AD11 is a modifier key
-    key <AD12> { [ Tab, ISO_Left_Tab, Caps_Lock ] };
-    // I'm reserving backslash for another modifier
-
-    // Home Row
-    key <AC01> { [ a, A, at ], [ Greek_alpha, Greek_ALPHA ] };
-    key <AC02> { [ o, O, bracketleft ], [ Greek_omicron, Greek_OMICRON ] };
-    key <AC03> { [ e, E, bracketright ], [ Greek_epsilon, Greek_EPSILON ] };
-    key <AC04> { [ u, U, backslash ], [ Greek_omega, Greek_OMEGA ] };
-    key <AC05> { [ i, I ], [ Greek_iota, Greek_IOTA ] };
-    key <AC06> { [ d, D, Left, leftarrow ], [ Greek_delta, Greek_DELTA ] };
-    key <AC07> { [ h, H, Down, downarrow ], [ Greek_theta, Greek_THETA ] };
-    key <AC08> { [ t, T, Up, uparrow ], [ Greek_tau, Greek_TAU ] };
-    key <AC09> { [ n, N, Right, rightarrow ], [ Greek_nu, Greek_NU ] };
-    key <AC10> { [ s, S, Prior ], [ Greek_sigma, Greek_SIGMA ] }; // Prior is pageup
-    // Note the lack of AC11 - it's a mod key now
-
-    // Lower Row
-    key <AB01> { [ apostrophe, quotedbl, grave ] };
-    key <AB02> { [ q, Q ], [ Greek_psi, Greek_PSI ] };
-    key <AB03> { [ j, J, Escape ], [ Greek_eta, Greek_ETA ] };
-    key <AB04> { [ k, K ], [ Greek_kappa, Greek_KAPPA ] };
-    key <AB05> { [ x, X ], [ Greek_chi, Greek_CHI ] };
-    key <AB06> { [ b, B ], [ Greek_beta, Greek_BETA ] };
-    key <AB07> { [ m, M, Insert ], [ Greek_mu, Greek_MU ] };
-    key <AB08> { [ w, W, Home ], [] };
-    key <AB09> { [ v, V, End ], [] };
-    key <AB10> { [ z, Z, Next ], [ Greek_zeta, Greek_ZETA ] }; // Next is pagedown
-
+    key <RALT> { [ Super_R ] }; // For VT-switching
+    //key <RWIN> { [] };
+    //key <MENU> { [] };
+    key <RCTL> { type="ONE_LEVEL", [ ISO_Level5_Shift ] };
 
 // I've put the numbers as the base of the number pad
 // But maybe I'll later want things like KP_Home, KP_Next, etc...
 
     // TODO - find a use for this.  I don't want numlock on my layout.  I've always disliked it.
-    //key <NMLK> { [ Num_Lock, Num_Lock, Num_Lock, Num_Lock, Num_Lock  ] };
+    //key <NMLK> { [] };
     key <KPDV> { [ KP_Divide ] };
     key <KPMU> { [ KP_Multiply, asciicircum ] };
     key <KPSU> { [ KP_Subtract, BackSpace ] };
@@ -191,65 +285,67 @@ xkb_symbols "hatchak" {
     key <RGHT> { [  Right   ] };
 
 
-// Function Keys, taken from srvr_ctrl, but modified to use super and alt
-// for VT switching - so they're on the same keys as other VTs in qwerty.
+
+// Function Keys, which I don't personally care about except
+// for VT switching.  The combos for VT switching are mapped
+// so they're on the same keys as the VT switchers in qwerty.
     key <FK01> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F1, F1, F1, F1, XF86_Switch_VT_1 ]
     };
 
     key <FK02> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F2, F2, F2, F2, XF86_Switch_VT_2 ]
     };
 
     key <FK03> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F3, F3, F3, F3, XF86_Switch_VT_3 ]
     };
 
     key <FK04> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F4, F4, F4, F4, XF86_Switch_VT_4 ]
     };
 
     key <FK05> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F5, F5, F5, F5, XF86_Switch_VT_5 ]
     };
 
     key <FK06> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F6, F6, F6, F6, XF86_Switch_VT_6 ]
     };
 
     key <FK07> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F7, F7, F7, F7, XF86_Switch_VT_7 ]
     };
 
     key <FK08> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F8, F8, F8, F8, XF86_Switch_VT_8 ]
     };
 
     key <FK09> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F9, F9, F9, F9, XF86_Switch_VT_9 ]
     };
 
     key <FK10> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F10, F10, F10, F10, XF86_Switch_VT_10 ]
     };
 
     key <FK11> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F11, F11, F11, F11, XF86_Switch_VT_11 ]
     };
 
     key <FK12> {
-       type="SUPER_ALT",
+       type="Hatchak_VT",
        symbols[Group1]= [ F12, F12, F12, F12, XF86_Switch_VT_12 ]
     };
 

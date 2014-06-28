@@ -1,35 +1,35 @@
-Hatchak is a customized Dvorak keyboard layout.  It also draws from Programmer's Dvorak (particularly in the arrangement of the numbers).
+Hatchak: a Dvorak-based keyboard layout for super users
 
-Written by William Hatch (Thus the name).
+Made by William Hatch <willghatch@gmail.com>
 
-Some big differences are the placement of Control keys and the addition of Level3_shift keys.  This necessitates and facilitates the moving of some symbols into shift level 3, and also allows cools things like putting the arrow keys, home, end, pageup, and pagedown as level 3 shift keys so you don't have to move your hand to press them.
+The major design goals were the following:
+* Make all keys pressable without moving hands to another part of the keyboard
+* Make modifier keys generally easier and more ergonomic to press, and have a
+s many as possible available
+* Keep letters in Dvorak layout
 
-It is NOT finalized.  Some of the symbol placement was somewhat arbitrary, and I need to do more research, experimentation, and thinking about their placement.  It is purposely different from Programmer's Dvorak on symbol placement, as I don't like some of those positions.
+Other benefits include:
+* Have numbers arranged like numpad, but accessable in normal layout with CONSISTENT modifier to access them (unlike on laptop keyboards that have it similarly)
+* Eliminate the need to worry about most differences in laptop keyboards with regards to modifier key layout
+* Eliminate the need to worry about small keyboards lacking all of the extra functional keys
+* AWESOMENESS
 
-I've implemented it for xkbd.  It seems like "the way" to do it in X, and it looks like it is also being pulled into Wayland.  And I don't know of any more portable input method.  I may look into ibus later.  But I imagine any implementation for Windows, Mac, Android, etc.  would need to use something completely different anyway.  But who even likes those platforms anyway?  So this works on Linux, and presumably any unix with X and XKB.
+I've implemented the keyboard in XKB, which will make it work on any system with a modern X server (Most any UNIX clone), and supposedly Weston (the display server of the (current) future for GNU/Linux.  With any luck the Mir display server will use XKB as well.  The basic features (including all ascii characters) should be implementable on Android's current keyboard system, but I doubt L5-shift or Hyper would be doable.  I expect that to be true on all non-XKB systems at this point.
 
-Of note may be the fact that I'm just now learning Dvorak, so I'm not actually an experienced user.  But I figured that as long as I'm going to learn a completely new layout, I may as well customize it to match the way I use and want to use the keyboard.
+If someone wants to port this, feel free.  I'll probably never make a port for a proprietary OS, and while I don't see many users of such systems wanting to use weird key layouts anyway, if it's of use to you... great.
 
-If you have any good ideas, suggestions, or comments let me know!
+This layout may change somewhat over time.  For now, this is the gist of things:
 
-Notable key placements:
-=======================
+* Letters are in standard Dvorak layout, as is shift, comma, and period.
+* There is a "Level3" shift (on capslock and quote keys), as well as a "Level5" (on Ctrl keys)
+* The keys for tab, tilde, 1, and 2 are respectively control, alt, super, and hyper
+* The keys for quote, leftbracket, rightbracket, equal, and minus are respectively control, alt, super, and hyper
+* Numbers are accessed with L3 shift, and are placed like a number pad on the right hand
+* All ascii non-alphanumerics are on either the number keys or in L3-land.
+* L5 has control keys, like arrows, pageup/down, etc on or near the hjkl keys
+* L5 on g (u key) is greek dead key
+* Tab is on L3+space, and (maybe temporarily, maybe permanently) on the backslash/pipe key
+* caps lock is L3+(backslash key)
 
-Control keys are on Caps Lock and on the quote key.
-Level 3 shift keys are on tab and left bracket key.
-Tab is given by L3+Space.  Or right bracket, for now at least.
-Caps Lock is given by L3+Right bracket.  After I fix that - for now it's the menu key.
-Tilde and backslash keys I'm reserving for more modifier keys at the moment.
-I moved Alt (left and right) to the control keys (I find them easier to press, though that may just be because I'm more used to using them by touch)
-Super keys are on alt.
-L3+{h,j,k,l} are the arrow keys, L3+{semicolon, slash} are pageup/down, L3+{<,>} are home and end.
-
-
-Todo/Bugs:
-==========
-
-Any time the key with caps lock is used it toggles caps lock. - For now I've moved caps lock to the menu key, since I don't yet know what I want to do with that.
-Some programs won't see some L3 shift characters like the arrows and tab (Including eg. Firefox, Intellij).  Seems like it's because they have their own keyboard handling code, so instead of seeing "Tab is pressed" they see "L3 shift and space are pressed".  Intellij will see printing characters from the L3-shifted keys, just not non-printers.  Firefox only has problems with certain keys, most notably space, due to a firefox bug.  But a friend and I tracked it down, so maybe we'll submit a patch.
-Add Greek dead key.
-Think of more cool features to add!
+Some programs don't see characters in L5, sometimes even L3.  Just lame ones, though.
 
