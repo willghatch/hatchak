@@ -33,7 +33,7 @@ xkb_symbols "hatchak" {
     key <ESC>  { type="ONE_LEVEL", [ Escape ] };
 
 // Number Row
-    key <TLDE> { type="ONE_LEVEL", [ Alt_L ] };
+    key <TLDE> { type="ONE_LEVEL", [ Caps_Lock ] };
     key <AE01> { type="ONE_LEVEL", [ Super_L ] };
     key <AE02> { type="ONE_LEVEL", [ Hyper_L ] };
     key <AE03> { [ equal, notequal, approxequal ], 
@@ -73,24 +73,21 @@ xkb_symbols "hatchak" {
     key <BKSP> { type="TWO_LEVEL", [ BackSpace, Delete ] };
 
 // Upper Row
-    key <TAB>  { type="ONE_LEVEL", [ Control_L ] };
-    key <AD01> { [ minus, underscore, bar, brokenbar ], 
+    key <TAB>  { type="ONE_LEVEL", [ Alt_L ] };
+    key <AD01> { type="ONE_LEVEL", [ Control_L ] };
+    key <AD02> { [ minus, underscore, bar, brokenbar ], 
                  [], 
                  [], 
                  [] };
-    key <AD02> { [ comma, exclam, less, exclamdown ], 
+    key <AD03> { [ period, question, comma, questiondown ], 
                  [], 
                  [], 
                  [] };
-    key <AD03> { [ period, question, greater, questiondown ], 
-                 [], 
-                 [], 
-                 [] };
-    key <AD04> { [ p, P, percent ], 
+    key <AD04> { [ p, P, less ], 
                  [ Greek_pi, Greek_PI ], 
                  [], 
                  [] };
-    key <AD05> { [ y, Y ], 
+    key <AD05> { [ y, Y, greater ], 
                  [ Greek_upsilon, Greek_UPSILON ], 
                  [], 
                  [] };
@@ -116,27 +113,27 @@ xkb_symbols "hatchak" {
                  [] };
     key <AD11> { type="ONE_LEVEL", [ Control_R ] };
     key <AD12> { type="ONE_LEVEL", [ Alt_R ] };
-    key <BKSL> { [ Tab, ISO_Left_Tab, Caps_Lock ] };
+    key <BKSL> { [ Tab, ISO_Left_Tab ] };
 
 // Home Row
     key <CAPS> { type="ONE_LEVEL", [ ISO_Level3_Shift ] };
-    key <AC01> { [ a, A, at ], 
+    key <AC01> { [ a, A, braceleft, guillemotleft ], 
                  [ Greek_alpha, Greek_ALPHA ], 
                  [], 
                  [] };
-    key <AC02> { [ o, O, bracketleft, guillemotleft ], 
+    key <AC02> { [ o, O, braceright, guillemotright ], 
                  [ Greek_omicron, Greek_OMICRON ], 
                  [], 
                  [] };
-    key <AC03> { [ e, E, bracketright, guillemotright ], 
+    key <AC03> { [ e, E, bracketleft ], 
                  [ Greek_epsilon, Greek_EPSILON ], 
                  [], 
                  [] };
-    key <AC04> { [ u, U, numbersign ], 
+    key <AC04> { [ u, U, bracketright ], 
                  [ Greek_omega, Greek_OMEGA ], 
                  [], 
                  [] };
-    key <AC05> { [ i, I, ampersand ], 
+    key <AC05> { [ i, I, exclam, exclamdown ], 
                  [ Greek_iota, Greek_IOTA ], 
                  [], 
                  [] };
@@ -169,11 +166,11 @@ xkb_symbols "hatchak" {
                  [], 
                  [], 
                  [] };
-    key <AB02> { [ q, Q, braceleft ], 
+    key <AB02> { [ q, Q, at ], 
                  [ Greek_psi, Greek_PSI ], 
                  [], 
                  [] };
-    key <AB03> { [ j, J, braceright ], 
+    key <AB03> { [ j, J, numbersign ], 
                  [ Greek_eta, Greek_ETA ], 
                  [], 
                  [] };
@@ -181,7 +178,7 @@ xkb_symbols "hatchak" {
                  [ Greek_kappa, Greek_KAPPA ], 
                  [], 
                  [] };
-    key <AB05> { [ x, X ], 
+    key <AB05> { [ x, X, ampersand ], 
                  [ Greek_chi, Greek_CHI ], 
                  [], 
                  [] };
@@ -201,7 +198,7 @@ xkb_symbols "hatchak" {
                  [], 
                  [], 
                  [] };
-    key <AB10> { [ z, Z, NoSymbol, NoSymbol, Insert ], 
+    key <AB10> { [ z, Z, percent, NoSymbol, Insert ], 
                  [ Greek_zeta, Greek_ZETA ], 
                  [], 
                  [] };
