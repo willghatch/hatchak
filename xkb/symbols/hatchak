@@ -70,7 +70,7 @@ xkb_symbols "hatchak" {
                  [] };
     key <AE11> { type="ONE_LEVEL", [ Hyper_R ] };
     key <AE12> { type="ONE_LEVEL", [ Super_R ] };
-    key <BKSP> { type="TWO_LEVEL", [ BackSpace, Delete ] };
+    key <BKSP> { [ BackSpace, BackSpace, Delete ] };
 
 // Upper Row
     key <TAB>  { type="ONE_LEVEL", [ Alt_L ] };
