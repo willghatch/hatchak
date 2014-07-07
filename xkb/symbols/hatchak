@@ -174,11 +174,11 @@ xkb_symbols "hatchak" {
                  [ Greek_eta, Greek_ETA ], 
                  [], 
                  [] };
-    key <AB04> { [ k, K, ampersand ], 
+    key <AB04> { [ k, K, Escape ], 
                  [ Greek_kappa, Greek_KAPPA ], 
                  [], 
                  [] };
-    key <AB05> { [ x, X, Escape ], 
+    key <AB05> { [ x, X, ampersand ], 
                  [ Greek_chi, Greek_CHI ], 
                  [], 
                  [] };
