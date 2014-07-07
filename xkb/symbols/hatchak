@@ -36,11 +36,11 @@ xkb_symbols "hatchak" {
     key <TLDE> { type="ONE_LEVEL", [ Caps_Lock ] };
     key <AE01> { type="ONE_LEVEL", [ Super_L ] };
     key <AE02> { type="ONE_LEVEL", [ Hyper_L ] };
-    key <AE03> { [ equal, notequal, approxequal ], 
+    key <AE03> { [ Tab, ISO_Left_Tab ], 
                  [], 
                  [], 
                  [] };
-    key <AE04> { [ dollar, cent, EuroSign, sterling, yen ], 
+    key <AE04> { [ equal, dollar, notequal, cent, EuroSign, sterling, yen ], 
                  [], 
                  [], 
                  [] };
@@ -208,7 +208,7 @@ xkb_symbols "hatchak" {
     key <LCTL> { type="ONE_LEVEL", [ ISO_Level5_Shift ] };
     //key <LWIN> { [] };
     key <LALT> { [ Super_L ] }; // For VT-switching
-    key <SPCE> { [ space, space, Tab, ISO_Left_Tab ] };
+    key <SPCE> { [ space, space, space, space ] };
     key <RALT> { [ Super_R ] }; // For VT-switching
     //key <RWIN> { [] };
     //key <MENU> { [] };
