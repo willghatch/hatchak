@@ -64,7 +64,7 @@ xkb_symbols "hatchak" {
                  [], 
                  [], 
                  [] };
-    key <AE10> { [ parenright, dead_grave ], 
+    key <AE10> { [ parenright, dead_acute ], 
                  [], 
                  [], 
                  [] };
