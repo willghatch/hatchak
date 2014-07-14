@@ -91,23 +91,23 @@ xkb_symbols "hatchak" {
                  [ Greek_upsilon, Greek_UPSILON ], 
                  [], 
                  [] };
-    key <AD06> { [ f, F, asciicircum ], 
+    key <AD06> { [ f, F, asciicircum, No_Symbol, No_Symbol, F12 ], 
                  [ Greek_phi, Greek_PHI ], 
                  [], 
                  [] };
-    key <AD07> { [ g, G, 7, NoSymbol, ISO_Group_Latch ], 
+    key <AD07> { [ g, G, 7, NoSymbol, ISO_Group_Latch, F7 ], 
                  [ Greek_gamma, Greek_GAMMA ], 
                  [], 
                  [] };
-    key <AD08> { [ c, C, 8, NoSymbol, Home ], 
+    key <AD08> { [ c, C, 8, NoSymbol, Home, F8 ], 
                  [ Greek_xi, Greek_XI ], 
                  [], 
                  [] };
-    key <AD09> { [ r, R, 9, NoSymbol, End ], 
+    key <AD09> { [ r, R, 9, NoSymbol, End, F9 ], 
                  [ Greek_rho, Greek_RHO ], 
                  [], 
                  [] };
-    key <AD10> { [ l, L, asciitilde, notsign, Prior ], // Prior is pageup
+    key <AD10> { [ l, L, asciitilde, notsign, Prior, F15 ], // Prior is pageup
                  [ Greek_lamda, Greek_LAMDA ], 
                  [], 
                  [] };
@@ -137,23 +137,23 @@ xkb_symbols "hatchak" {
                  [ Greek_iota, Greek_IOTA ], 
                  [], 
                  [] };
-    key <AC06> { [ d, D, asterisk, enfilledcircbullet, Left, leftarrow ], 
+    key <AC06> { [ d, D, asterisk, enfilledcircbullet, Left, F11, leftarrow ], 
                  [ Greek_delta, Greek_DELTA ], 
                  [], 
                  [] };
-    key <AC07> { [ h, H, 4, NoSymbol, Down, downarrow ], 
+    key <AC07> { [ h, H, 4, NoSymbol, Down, F4, downarrow ], 
                  [ Greek_theta, Greek_THETA ], 
                  [], 
                  [] };
-    key <AC08> { [ t, T, 5, NoSymbol, Up, uparrow ], 
+    key <AC08> { [ t, T, 5, NoSymbol, Up, F5, uparrow ], 
                  [ Greek_tau, Greek_TAU ], 
                  [], 
                  [] };
-    key <AC09> { [ n, N, 6, NoSymbol, Right, rightarrow ], 
+    key <AC09> { [ n, N, 6, NoSymbol, Right, F6, rightarrow ], 
                  [ Greek_nu, Greek_NU ], 
                  [], 
                  [] };
-    key <AC10> { [ s, S, plus, plusminus, Next ], // Next is pagedown
+    key <AC10> { [ s, S, plus, plusminus, Next, F14 ], // Next is pagedown
                  [ Greek_sigma, Greek_SIGMA ], 
                  [], 
                  [] };
@@ -182,23 +182,23 @@ xkb_symbols "hatchak" {
                  [ Greek_chi, Greek_CHI ], 
                  [], 
                  [] };
-    key <AB06> { [ b, B, 0 ], 
+    key <AB06> { [ b, B, 0, NoSymbol, NoSymbol, F10 ], 
                  [ Greek_beta, Greek_BETA ], 
                  [], 
                  [] };
-    key <AB07> { [ m, M, 1 ], 
+    key <AB07> { [ m, M, 1, NoSymbol, NoSymbol, F1 ], 
                  [ Greek_mu, Greek_MU ], 
                  [], 
                  [] };
-    key <AB08> { [ w, W, 2 ], 
+    key <AB08> { [ w, W, 2, NoSymbol, NoSymbol, F2 ], 
                  [], 
                  [], 
                  [] };
-    key <AB09> { [ v, V, 3 ], 
+    key <AB09> { [ v, V, 3, NoSymbol, NoSymbol, F3 ], 
                  [], 
                  [], 
                  [] };
-    key <AB10> { [ z, Z, percent, NoSymbol, Insert ], 
+    key <AB10> { [ z, Z, percent, NoSymbol, Insert, F13 ], 
                  [ Greek_zeta, Greek_ZETA ], 
                  [], 
                  [] };
