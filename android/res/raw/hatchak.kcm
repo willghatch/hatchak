@@ -5,7 +5,16 @@ type OVERLAY
 #alt:                                '\u00e7'
 #shift+alt:                          '\u00c7'
 # The mods recognized are shift lshift rshift
-# alt (lr) ctrl (lr) meta (lr) sym fn capslock numlack scrolllack
+# alt (lr) ctrl (lr) meta (lr) sym fn capslock numlock scrolllock
+# I would love to be able to use sym or fn, since they wouldn't have this alt problem...
+# but sym seems to always launch a keyboard settings menu whenever pressed (although it
+# otherwise modifies properly) and I can't figure out how to map a key to be android's fn
+# modifier.  The fn key on my cheapo bluetooth keyboard doesn't send a scancode... it just
+# makes other keys send different scan codes than normal.
+# Also, I can't seem to escape android's usage of escape as a home key, even though I explicitly
+# set it to send the unicode escape symbol...
+# Oh... Android... As soon as there is a viable GNU/Linux phone that I can get my hands on I'm gone...
+
 
 # mappings for keys to be on different key numbers is achieved with
 # map key <n> <sym>
