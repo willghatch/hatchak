@@ -10,6 +10,8 @@ type OVERLAY
 # mappings for keys to be on different key numbers is achieved with
 # map key <n> <sym>
 
+# Escape key, which may be mapped to BACK
+map key 1 ESCAPE
 #caps
 map key 58 ALT_RIGHT
 #tab
@@ -17,7 +19,7 @@ map key 15 ALT_LEFT
 #tilde
 map key 41 CAPS_LOCK
 #1
-map key 2 META_LEFT
+map key 2 SYM
 #2
 map key 3 META_LEFT
 #q
@@ -33,12 +35,13 @@ map key 27 ALT_LEFT
 #'
 map key 40 ALT_RIGHT
 
-
 key A {
     label:                              'A'
     base:                               'a'
     shift, capslock:                    'A'
     ralt:                               '{'
+    sym:                                '#'
+    fn:                                 '@'
 }
 
 key B {
@@ -180,7 +183,8 @@ key V {
     label:                              'K'
     base:                               'k'
     shift, capslock:                    'K'
-    ralt:                               Escape
+    # escape
+    ralt:                               '\u001B'
 }
 
 key W {
@@ -293,7 +297,8 @@ key SEMICOLON {
 }
 
 key ESCAPE {
-    base:                               fallback BACK
+    base:                               '\u001B'
+    shift:                              fallback BACK
     alt, meta:                          fallback HOME
     ctrl:                               fallback MENU
 }

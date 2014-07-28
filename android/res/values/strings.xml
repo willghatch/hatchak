@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">HatchakKeyboardLayout</string>
-    <string name="keyboard_layouts_label">HatchakKeyboardLayout</string>
-    <string name="keyboard_layout_english_hatchak_label">English (hatchak)</string>
+    <string name="app_name">Hatchak</string>
+    <string name="keyboard_layouts_label">Hatchak</string>
+    <string name="hatchak_kl_label">Hatchak</string>
 </resources>

@@ -3,4 +3,18 @@ Android package for Hatchak layout
 I based the android build stuff (IE gratefully ripped off so I didn't have to figure it out) from https://github.com/tialaramex/BritishKeyboard.git
 Thanks tialaramex!
 
-So... I'm writing this before actually getting it built... once I figure that out I'll add it here...
+
+Problems:
+Android's keyboard input system is far inferior to xkb.  There doesn't seem to be any way to have an altgr or level 3 shift that doesn't also tell an application that the alt key is pressed, so for eg. the terminal, you can either use altgr OR you can set it to send esc when alt is pressed (for, say, emacs-style keybindings).  So your results may be... sub par.
+
+
+---- B U I L D ----
+
+To build the android package, set your ANDROID_HOME environment variable to point to your android sdk (maybe /opt/android-sdk).
+Then run:
+ant debug
+That will build a package and sign it with a debug key so you can install it (probably with adb install)
+To build a release version (that won't be any different) you can run:
+ant release
+But then you'll have to sign it yourself.
+
