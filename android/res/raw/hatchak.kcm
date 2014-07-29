@@ -285,12 +285,14 @@ key COMMA {
     label:                              'W'
     base:                               'w'
     shift,capslock:                     'W'
+    ralt:                               '2'
 }
 
 key PERIOD {
     label:                              'V'
     base:                               'v'
-    shift:                              'V'
+    shift,capslock:                     'V'
+    ralt:                               '3'
 }
 
 key SLASH {
