@@ -28,7 +28,7 @@ xkb_symbols "hatchak" {
 
 
 // Most keys are eight level type
-    key.type = "EIGHT_LEVEL";
+    key.type = "EIGHT_LEVEL_SEMIALPHABETIC";
 
     key <ESC>  { type="ONE_LEVEL", [ Escape ] };
 
