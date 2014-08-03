@@ -91,7 +91,7 @@ xkb_symbols "hatchak" {
                  [ Greek_upsilon, Greek_UPSILON ], 
                  [], 
                  [] };
-    key <AD06> { [ f, F, asciicircum, No_Symbol, No_Symbol, F12 ], 
+    key <AD06> { [ f, F, asciicircum, NoSymbol, NoSymbol, F12 ], 
                  [ Greek_phi, Greek_PHI ], 
                  [], 
                  [] };
