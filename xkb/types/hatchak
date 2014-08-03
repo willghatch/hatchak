@@ -1,10 +1,19 @@
 
 xkb_types "hatchak" {
     include "complete"
+
+    virtual_modifiers LevelThree;
     
-    virtual_modifiers Super;
-    //virtual_modifiers LSuper;
-    //virtual_modifiers RSuper;
+    type "hk_shift" {
+        modifiers = Shift+LevelThree+Lock;
+        map[None] = Level1;
+        map[LevelThree] = Level2;
+        map[Lock] = Level3;
+        map[Shift+Lock] = Level3;
+        level_name[Level1] = "Base";
+        level_name[Level2] = "L3";
+        level_name[Level3] = "Caps";
+    };
 
     type "Hatchak_VT" {
         modifiers = Shift+LevelFive+Alt+Control;

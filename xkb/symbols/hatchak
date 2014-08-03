@@ -16,11 +16,11 @@ xkb_symbols "hatchak" {
     // Alt and Super are on Mods 1 and 4 respectively, because that's their
     // normal placement.
     modifier_map Mod1    { Alt_L, Alt_R };
-    modifier_map Mod5    { ISO_Level3_Shift };
-    modifier_map Mod3    { ISO_Level5_Shift };
+    modifier_map Mod5    { ISO_Level3_Shift, ISO_Level3_Latch };
+    modifier_map Mod3    { ISO_Level5_Shift, ISO_Level5_Latch };
     modifier_map Mod4    { Super_L, Super_R };
     modifier_map Mod2    { Hyper_L, Hyper_R };
-    modifier_map Shift   { Shift_L, Shift_R };
+    modifier_map Shift   { Shift_L, ISO_Level2_Latch };
     modifier_map Control { Control_L, Control_R };
     modifier_map Lock    { Caps_Lock };
 
@@ -34,8 +34,8 @@ xkb_symbols "hatchak" {
 
 // Number Row
     key <TLDE> { type="ONE_LEVEL", [ Caps_Lock ] };
-    key <AE01> { type="ONE_LEVEL", [ Super_L ] };
-    key <AE02> { type="ONE_LEVEL", [ Hyper_L ] };
+    key <AE01> { type="TWO_LEVEL", [ Super_R, Super_L ] };
+    key <AE02> { type="TWO_LEVEL", [ Hyper_R, Hyper_L ] };
     key <AE03> { [ Tab, ISO_Left_Tab ], 
                  [], 
                  [], 
@@ -68,13 +68,13 @@ xkb_symbols "hatchak" {
                  [], 
                  [], 
                  [] };
-    key <AE11> { type="ONE_LEVEL", [ Hyper_R ] };
-    key <AE12> { type="ONE_LEVEL", [ Super_R ] };
+    key <AE11> { type="TWO_LEVEL", [ Hyper_R, Hyper_L ] };
+    key <AE12> { type="TWO_LEVEL", [ Super_R, Super_L ] };
     key <BKSP> { [ BackSpace, BackSpace, Delete ] };
 
 // Upper Row
-    key <TAB>  { type="ONE_LEVEL", [ Alt_L ] };
-    key <AD01> { type="ONE_LEVEL", [ Control_L ] };
+    key <TAB>  { type="TWO_LEVEL", [ Alt_R, Alt_L ] };
+    key <AD01> { type="TWO_LEVEL", [ Control_R, Control_L ] };
     key <AD02> { [ minus, underscore, bar, brokenbar ], 
                  [], 
                  [], 
@@ -111,12 +111,13 @@ xkb_symbols "hatchak" {
                  [ Greek_lamda, Greek_LAMDA ], 
                  [], 
                  [] };
-    key <AD11> { type="ONE_LEVEL", [ Control_R ] };
-    key <AD12> { type="ONE_LEVEL", [ Alt_R ] };
+    key <AD11> { type="TWO_LEVEL", [ Control_R, Control_L ] };
+    key <AD12> { type="TWO_LEVEL", [ Alt_R, Alt_L ] };
     key <BKSL> { [ Tab, ISO_Left_Tab ] };
 
 // Home Row
-    key <CAPS> { type="ONE_LEVEL", [ ISO_Level3_Shift ] };
+    //key <CAPS> { type="ONE_LEVEL", [ ISO_Level3_Shift ] };
+    key <CAPS> { type="TWO_LEVEL", [ ISO_Level3_Latch, ISO_Level3_Lock ] };
     key <AC01> { [ a, A, braceleft, guillemotleft ], 
                  [ Greek_alpha, Greek_ALPHA ], 
                  [], 
@@ -157,11 +158,11 @@ xkb_symbols "hatchak" {
                  [ Greek_sigma, Greek_SIGMA ], 
                  [], 
                  [] };
-    key <AC11> { type="ONE_LEVEL", [ ISO_Level3_Shift ] };
+    key <AC11> { type="TWO_LEVEL", [ ISO_Level3_Latch, ISO_Level3_Lock ] };
     key <RTRN> { type="ONE_LEVEL", [ Return ] };
 
 // Lower Row
-    key <LFSH> { type="ONE_LEVEL", [ Shift_L ] };
+    key <LFSH> { type="hk_shift", [ ISO_Level2_Latch, Caps_Lock, Shift_R ] };
     key <AB01> { [ apostrophe, quotedbl, grave ], 
                  [], 
                  [], 
@@ -202,17 +203,18 @@ xkb_symbols "hatchak" {
                  [ Greek_zeta, Greek_ZETA ], 
                  [], 
                  [] };
-    key <RTSH> { type="ONE_LEVEL", [ Shift_R ] };
+    //key <RTSH> { type="ONE_LEVEL", [ Shift_L ] };
+    key <RTSH> { type="hk_shift", [ ISO_Level2_Latch, Caps_Lock, Shift_R ] };
 
 // Space Row
-    key <LCTL> { type="ONE_LEVEL", [ ISO_Level5_Shift ] };
+    key <LCTL> { type="TWO_LEVEL", [ ISO_Level5_Latch, ISO_Level5_Lock ] };
     //key <LWIN> { [] };
-    key <LALT> { [ Alt_L ] }; // For VT-switching
+    key <LALT> { [ Alt_R ] }; // For VT-switching
     key <SPCE> { [ space, space, space, space ] };
     key <RALT> { [ Alt_R ] }; // For VT-switching
     //key <RWIN> { [] };
     //key <MENU> { [] };
-    key <RCTL> { type="ONE_LEVEL", [ ISO_Level5_Shift ] };
+    key <RCTL> { type="TWO_LEVEL", [ ISO_Level5_Latch, ISO_Level5_Lock ] };
 
 // I've put the numbers as the base of the number pad
 // But maybe I'll later want things like KP_Home, KP_Next, etc...

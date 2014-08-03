@@ -1,0 +1,299 @@
+xkb_compatibility "hatchak" {
+
+    //virtual_modifiers Super,Alt,LevelThree,LAlt,RAlt,RControl,LControl,LevelFive,ISO_Level2_Latch,AltGr,Meta,Hyper;
+    virtual_modifiers Super,Alt,LevelThree,LAlt,RAlt,Control,RControl,LControl,LevelFive,ISO_Level2_Latch,Hyper,AltGr,Shift;
+
+    interpret.useModMapMods= AnyLevel;
+    interpret.repeat= False;
+    //interpret.locking= True;
+    interpret.locking= False;
+    latchMods.clearLocks= True;
+
+
+    // Shift Lock (not capslock) is being hijacked for Alt lock
+    // scroll lock for control lock
+    // num lock for super lock
+    // Shift_R for hyper
+
+
+////// Shift/Lock
+    interpret Shift_L+AnyOfOrNone(all) {
+        action= SetMods(modifiers=Shift,clearLocks);
+    };
+    interpret ISO_Level2_Latch+AnyOfOrNone(all) {
+        virtualModifier=Shift;
+        action= LatchMods(modifiers=Shift,clearLocks);
+    };
+    interpret Shift_R+AnyOfOrNone(all) {
+        action= SetMods(modifiers=Lock,clearLocks);
+    };
+    interpret Caps_Lock+AnyOfOrNone(all) {
+        action= LockMods(modifiers=Lock);
+    };
+
+////// L3
+    interpret ISO_Level3_Shift+AnyOfOrNone(all) {
+        virtualModifier= LevelThree;
+        action= SetMods(modifiers=LevelThree,clearLocks);
+    };
+    interpret ISO_Level3_Latch+AnyOfOrNone(all) {
+        virtualModifier=LevelThree;
+        action= LatchMods(modifiers=LevelThree,clearLocks);
+    };
+    interpret ISO_Level3_Lock+AnyOfOrNone(all) {
+        virtualModifier= LevelThree;
+        action= LockMods(modifiers=LevelThree);
+    };
+
+////// L5
+    interpret ISO_Level5_Shift+AnyOfOrNone(all) {
+        virtualModifier= LevelFive;
+        action= SetMods(modifiers=LevelFive,clearLocks);
+    };
+    interpret ISO_Level5_Latch+AnyOf(all) {
+        virtualModifier= LevelFive;
+        action= LatchMods(modifiers=LevelFive,clearLocks);
+    };
+    interpret ISO_Level5_Lock+AnyOf(all) {
+        virtualModifier= LevelFive;
+        action= LockMods(modifiers=LevelFive);
+    };
+
+////// ctrl
+    //interpret Control_L+AnyOfOrNone(all) {
+        //virtualModifier= Control;
+        //action= setMods(modifiers=modMapMods,clearLocks);
+    //};
+    interpret Control_L+AnyOfOrNone(all) {
+        virtualModifier= Control;
+        action= LockMods(modifiers=modMapMods);
+    };
+    interpret Control_R+AnyOfOrNone(all) {
+        virtualModifier= Control;
+        action= LatchMods(modifiers=Control,clearLocks);
+    };
+    //interpret Scroll_Lock+AnyOfOrNone(all) {
+        //virtualModifier= Control;
+        //action= LockMods(modifiers=Control);
+    //};
+
+////// alt
+    //interpret Alt_L+AnyOf(all) {
+        //virtualModifier= Alt;
+        //action= SetMods(modifiers=modMapMods,clearLocks);
+    //};
+    interpret Alt_L+AnyOf(all) {
+        virtualModifier= Alt;
+        action= LockMods(modifiers=modMapMods);
+    };
+    interpret Alt_R+AnyOfOrNone(all) {
+        virtualModifier= Alt;
+        action= LatchMods(modifiers=Mod1,clearLocks);
+    };
+    //interpret Shift_Lock+AnyOfOrNone(all) {
+        //action= LockMods(modifiers=Mod1);
+    //};
+
+////// super
+    //interpret Super_L+AnyOf(all) {
+        //virtualModifier= Super;
+        //action= SetMods(modifiers=modMapMods,clearLocks);
+    //};
+    interpret Super_L+AnyOf(all) {
+        virtualModifier= Super;
+        action= LockMods(modifiers=modMapMods);
+    };
+    interpret Super_R+AnyOf(all) {
+        virtualModifier= Super;
+        action= LatchMods(modifiers=modMapMods,clearLocks);
+    };
+    //interpret Num_Lock+AnyOfOrNone(all) {
+        //action= LockMods(modifiers=Mod4);
+    //};
+
+////// hyper
+    //interpret Hyper_L+AnyOf(all) {
+        //virtualModifier= Hyper;
+        //action= SetMods(modifiers=modMapMods,clearLocks);
+    //};
+    interpret Hyper_L+AnyOf(all) {
+        virtualModifier= Hyper;
+        action= LockMods(modifiers=modMapMods);
+    };
+    interpret Hyper_R+AnyOf(all) {
+        virtualModifier= Hyper;
+        action= LatchMods(modifiers=modMapMods,clearLocks);
+    };
+
+
+    
+    interpret Any+AnyOf(all) {
+        action= SetMods(modifiers=modMapMods,clearLocks);
+    };
+
+
+
+////// Group stuff
+
+    interpret Mode_switch+AnyOfOrNone(all) {
+        virtualModifier= AltGr;
+        useModMapMods=level1;
+        action= SetGroup(group=+1);
+    };
+
+
+    interpret ISO_Group_Latch+AnyOfOrNone(all) {
+        virtualModifier= AltGr;
+        useModMapMods=level1;
+        action= LatchGroup(group=2);
+    };
+    interpret ISO_Next_Group+AnyOfOrNone(all) {
+        virtualModifier= AltGr;
+        useModMapMods=level1;
+        action= LockGroup(group=+1);
+    };
+    interpret ISO_Prev_Group+AnyOfOrNone(all) {
+        virtualModifier= AltGr;
+        useModMapMods=level1;
+        action= LockGroup(group=-1);
+    };
+    interpret ISO_First_Group+AnyOfOrNone(all) {
+        action= LockGroup(group=1);
+    };
+    interpret ISO_Last_Group+AnyOfOrNone(all) {
+        action= LockGroup(group=2);
+    };
+
+
+
+
+
+
+
+    
+    //interpret SlowKeys_Enable+AnyOfOrNone(all) {
+        //action= LockControls(controls=SlowKeys);
+    //};
+    //interpret BounceKeys_Enable+AnyOfOrNone(all) {
+        //action= LockControls(controls=BounceKeys);
+    //};
+    //interpret StickyKeys_Enable+AnyOfOrNone(all) {
+        //action= LockControls(controls=StickyKeys);
+    //};
+    //interpret MouseKeys_Enable+AnyOfOrNone(all) {
+        //action= LockControls(controls=MouseKeys);
+    //};
+    //interpret MouseKeys_Accel_Enable+AnyOfOrNone(all) {
+        //action= LockControls(controls=MouseKeysAccel);
+    //};
+    //interpret Overlay1_Enable+AnyOfOrNone(all) {
+        //action= LockControls(controls=Overlay1);
+    //};
+    //interpret Overlay2_Enable+AnyOfOrNone(all) {
+        //action= LockControls(controls=Overlay2);
+    //};
+
+
+
+
+
+
+    interpret AudibleBell_Enable+AnyOfOrNone(all) {
+        action= LockControls(controls=AudibleBell);
+    };
+    interpret Terminate_Server+AnyOfOrNone(all) {
+        action= Terminate();
+    };
+    
+////// VT switch
+    interpret XF86Switch_VT_1+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=1,!same);
+    };
+    interpret XF86Switch_VT_2+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=2,!same);
+    };
+    interpret XF86Switch_VT_3+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=3,!same);
+    };
+    interpret XF86Switch_VT_4+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=4,!same);
+    };
+    interpret XF86Switch_VT_5+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=5,!same);
+    };
+    interpret XF86Switch_VT_6+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=6,!same);
+    };
+    interpret XF86Switch_VT_7+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=7,!same);
+    };
+    interpret XF86Switch_VT_8+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=8,!same);
+    };
+    interpret XF86Switch_VT_9+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=9,!same);
+    };
+    interpret XF86Switch_VT_10+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=10,!same);
+    };
+    interpret XF86Switch_VT_11+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=11,!same);
+    };
+    interpret XF86Switch_VT_12+AnyOfOrNone(all) {
+        repeat= True;
+        action= SwitchScreen(screen=12,!same);
+    };
+
+
+
+    
+
+    group 2 = AltGr;
+    group 3 = AltGr;
+    group 4 = AltGr;
+
+
+
+
+
+
+    
+    indicator "Caps Lock" {
+        !allowExplicit;
+        whichModState= locked;
+        modifiers= Lock;
+    };
+    indicator "Num Lock" {
+        !allowExplicit;
+        whichModState= locked;
+        modifiers= Hyper;
+    };
+    indicator "Scroll Lock" {
+        whichModState= locked;
+        modifiers= Control;
+    };
+    indicator "Shift Lock" {
+        !allowExplicit;
+        whichModState= locked;
+        modifiers= Shift;
+    };
+    indicator "Group 2" {
+        !allowExplicit;
+        groups= 0xfe;
+    };
+    indicator "Mouse Keys" {
+        indicatorDrivesKeyboard;
+        controls= mouseKeys;
+    };
+};
