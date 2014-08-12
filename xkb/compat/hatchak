@@ -1,0 +1,13 @@
+
+default xkb_compatibility "hatchak" {
+
+    include "complete"
+
+    indicator "Num Lock" {
+        !allowExplicit;
+        whichModState= Locked;
+        modifiers= Mod4;
+    };
+                                                                                                     
+
+};
