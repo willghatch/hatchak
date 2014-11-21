@@ -34,8 +34,8 @@ xkb_symbols "hatchak" {
 
 // Number Row
     key <TLDE> { type="ONE_LEVEL", [ Caps_Lock ] };
-    key <AE01> { type="ONE_LEVEL", [ Super_L ] };
-    key <AE02> { type="ONE_LEVEL", [ Hyper_L ] };
+    key <AE01> { type="ONE_LEVEL", [ Hyper_L ] };
+    key <AE02> { type="ONE_LEVEL", [ Super_L ] };
     key <AE03> { [ Tab, ISO_Left_Tab ], 
                  [], 
                  [], 
@@ -68,8 +68,8 @@ xkb_symbols "hatchak" {
                  [], 
                  [], 
                  [] };
-    key <AE11> { type="ONE_LEVEL", [ Hyper_R ] };
-    key <AE12> { type="ONE_LEVEL", [ Super_R ] };
+    key <AE11> { type="ONE_LEVEL", [ Super_R ] };
+    key <AE12> { type="ONE_LEVEL", [ Hyper_R ] };
     key <BKSP> { [ BackSpace, BackSpace, Delete ] };
 
 // Upper Row
