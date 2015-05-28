@@ -60,11 +60,13 @@ xkb_symbols "hatchak" {
                  [], 
                  [], 
                  [] };
-    key <AE09> { [ parenleft, Multi_key ], 
+                    // U201C and U2018 are double and single left quotes: “‘
+    key <AE09> { [ parenleft, Multi_key, U201C, U2018 ],
                  [], 
                  [], 
                  [] };
-    key <AE10> { [ parenright, dead_acute ], 
+                    // U201D and U2019 are double and single right quotes: ”’
+    key <AE10> { [ parenright, dead_acute, U201D, U2019 ],
                  [], 
                  [], 
                  [] };
@@ -117,19 +119,23 @@ xkb_symbols "hatchak" {
 
 // Home Row
     key <CAPS> { type="ONE_LEVEL", [ ISO_Level3_Shift ] };
-    key <AC01> { [ a, A, braceleft, guillemotleft ], 
+                            // U2039=‹ (single left guillemet), guillemotleft=«
+    key <AC01> { [ a, A, braceleft, guillemotleft, U2039 ],
                  [ Greek_alpha, Greek_ALPHA ], 
                  [], 
                  [] };
-    key <AC02> { [ o, O, braceright, guillemotright ], 
+                            // U203A=› (single right guillemet), guillemotright=»
+    key <AC02> { [ o, O, braceright, guillemotright, U203A ],
                  [ Greek_omicron, Greek_OMICRON ], 
                  [], 
                  [] };
-    key <AC03> { [ e, E, bracketleft ], 
+                            // U300C=「 (left CJK quote), U300E=『 (left CJK doublequote)
+    key <AC03> { [ e, E, bracketleft, U300C, U300E ],
                  [ Greek_epsilon, Greek_EPSILON ], 
                  [], 
                  [] };
-    key <AC04> { [ u, U, bracketright ], 
+                            // U300D=」 (right CJK quote), U300F=』 (right CJK doublequote)
+    key <AC04> { [ u, U, bracketright, U300D, U300F ],
                  [ Greek_omega, Greek_OMEGA ], 
                  [], 
                  [] };
