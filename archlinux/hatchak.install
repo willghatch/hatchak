@@ -2,9 +2,5 @@
 post_install() {
     echo "To switch to Hatchak, use the command"
     echo "setxkbmap -symbols hatchak -types hatchak"
-    echo "**** If you are using this layout, please let me know."
-    echo "(my email is willghatch@gmail.com)"
-    echo "It's currently going through some changes, and I'd love"
-    echo "to hear people's input on it."
 }
 
