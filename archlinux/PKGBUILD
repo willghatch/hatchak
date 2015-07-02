@@ -30,9 +30,9 @@ build() {
         git clone $_gitroot
     fi
 
+}
+package() {
     install -D -m644 $srcdir/hatchak/xkb/types/hatchak $pkgdir/usr/share/X11/xkb/types/hatchak
     install -D -m644 $srcdir/hatchak/xkb/symbols/hatchak $pkgdir/usr/share/X11/xkb/symbols/hatchak
-
-    
 }
 
