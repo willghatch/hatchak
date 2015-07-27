@@ -56,7 +56,7 @@ xkb_symbols "hatchak" {
                  [], 
                  [], 
                  [] };
-    key <AE08> { [ slash, division, multiply ], 
+    key <AE08> { [ slash, ISO_Group_Latch, division, multiply ],
                  [], 
                  [], 
                  [] };
