@@ -44,3 +44,14 @@ Issues
 Some programs will not see keys in L3+ land if you switch keyboard layouts while they're running (QT based programs).  If you restart the program then they work as expected.
 On Android I can't find a way to do L3 shift without programs simultaneously seeing that Alt is pressed.  This causes issues with eg. Jackpal Terminal.
 
+
+Images
+------
+
+Level 1-2 -- IE normal and shifted
+![Example](https://github.com/willghatch/hatchak/raw/master/images/hatchak-g1-l1-2.jpg)
+Level 3-4 -- IE L3 shifted and L3+shift
+![Example](https://github.com/willghatch/hatchak/raw/master/images/hatchak-g1-l3-4.jpg)
+Group 2 (level 1-2) -- this is achived with ISO_GROUP_LATCH, which is where the asterisk is on qwerty
+![Example](https://github.com/willghatch/hatchak/raw/master/images/hatchak-g2-l1-2.jpg)
+
