@@ -130,12 +130,16 @@ xkb_symbols "hatchak" {
                  [], 
                  [] };
                             // U300C=「 (left CJK quote), U300E=『 (left CJK doublequote)
-    key <AC03> { [ e, E, bracketleft, U300C, U300E ],
+                            // U300C and U300E are both fullwidth.
+                            // UFF62=halfwidth version U300C,
+    key <AC03> { [ e, E, bracketleft, UFF62, U300E ],
                  [ Greek_epsilon, Greek_EPSILON ], 
                  [], 
                  [] };
                             // U300D=」 (right CJK quote), U300F=』 (right CJK doublequote)
-    key <AC04> { [ u, U, bracketright, U300D, U300F ],
+                            // U300D and U300F are both fullwidth.
+                            // UFF63=halfwidth version U300D,
+    key <AC04> { [ u, U, bracketright, UFF63, U300F ],
                  [ Greek_omega, Greek_OMEGA ], 
                  [], 
                  [] };
