@@ -115,7 +115,9 @@ xkb_symbols "hatchak" {
                  [] };
     key <AD11> { type="ONE_LEVEL", [ Control_R ] };
     key <AD12> { type="ONE_LEVEL", [ Alt_R ] };
-    key <BKSL> { [ Tab, ISO_Left_Tab ] };
+    // The backslash key should be bound to an input method program for inputting arbitrary unicode.
+    // Nobody will ever launch DOS with a key, so I'll appropriate it.
+    key <BKSL> { type="ONE_LEVEL", [ XF86DOS ] };
 
 // Home Row
     key <CAPS> { type="ONE_LEVEL", [ ISO_Level3_Shift ] };
