@@ -2,7 +2,7 @@ xkb_keymap {
     xkb_keycodes    { include "evdev+aliases(qwerty)" };
     xkb_types       { include "hatchak" };
     xkb_compat      { include "hatchak" };
-    xkb_symbols     { include "hatchak" };
+    xkb_symbols     { include "hatchak+inet(evdev)" };
     xkb_geometry    { include "pc(pc104)" };
 };
 
