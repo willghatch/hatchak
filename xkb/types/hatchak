@@ -21,7 +21,7 @@ xkb_types "hatchak" {
         level_name[Level3] = "L5";
         level_name[Level4] = "Shift_L5";
         level_name[Level5] = "Alt_L5";
-        level_name[Level5] = "Control_Alt";
+        level_name[Level6] = "Control_Alt";
     };
 };
 
