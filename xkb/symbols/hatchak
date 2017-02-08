@@ -44,7 +44,7 @@ xkb_symbols "hatchak" {
                  [], 
                  [], 
                  [] };
-    key <AE05> { [ semicolon, infinity ], 
+    key <AE05> { [ semicolon, infinity, Greek_lamda ], 
                  [], 
                  [], 
                  [] };
