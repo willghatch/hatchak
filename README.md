@@ -20,7 +20,7 @@ Other benefits include:
 
 I've implemented the keyboard in XKB, which will make it work on any system with a modern X server (Most any UNIX clone), and supposedly Weston (the display server of the (current) future for GNU/Linux.  With any luck the Mir display server will use XKB as well.  The basic features (including all ascii characters) should be implementable on Android's current keyboard system, but I doubt L5-shift or Hyper would be doable.  I expect that to be true on all non-XKB systems at this point.
 
-I've now implemented the layout for the Linux console (tty), although without L5+ or super/hyper.  Also I've implemented the layout for Android, although without hyper.  Android has a few annoying issues that I haven't worked out yet.
+I've now implemented the layout for the Linux console (tty), although without L5+ or super/hyper (somewhat out of sync, but better than the Andoird version).  Also I've implemented the layout for Android, although without hyper (I don't use it, and it's outdated).  Android has a few annoying issues that I haven't worked out yet.
 
 If someone wants to port this, feel free.  I'll probably never make a port for a proprietary OS, and while I don't see many users of such systems wanting to use weird key layouts anyway, if it's of use to you... great.
 
