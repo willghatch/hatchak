@@ -60,13 +60,12 @@ xkb_symbols "hatchak" {
                  [], 
                  [], 
                  [] };
-                    // U201C and U2018 are double and single left quotes: “‘
-    key <AE09> { [ parenleft, Multi_key, U201C, U2018 ],
+                    // Triangles can be used as paren types
+    key <AE09> { [ parenleft, Multi_key, U25F8, U25FA, U25E4, U25E3 ],
                  [], 
                  [], 
                  [] };
-                    // U201D and U2019 are double and single right quotes: ”’
-    key <AE10> { [ parenright, dead_acute, U201D, U2019 ],
+    key <AE10> { [ parenright, dead_acute, U25F9, U25FF, U25E5, U25E2 ],
                  [], 
                  [], 
                  [] };
@@ -131,17 +130,19 @@ xkb_symbols "hatchak" {
                  [ Greek_omicron, Greek_OMICRON ], 
                  [], 
                  [] };
+                            // U201C and U2018 are double and single left quotes: “‘
                             // U300C=「 (left CJK quote), U300E=『 (left CJK doublequote)
                             // U300C and U300E are both fullwidth.
                             // UFF62=halfwidth version U300C,
-    key <AC03> { [ e, E, bracketleft, UFF62, U300E ],
+    key <AC03> { [ e, E, bracketleft, U201C, U2018 ],
                  [ Greek_epsilon, Greek_EPSILON ], 
                  [], 
                  [] };
+                            // U201D and U2019 are double and single right quotes: ”’
                             // U300D=」 (right CJK quote), U300F=』 (right CJK doublequote)
                             // U300D and U300F are both fullwidth.
                             // UFF63=halfwidth version U300D,
-    key <AC04> { [ u, U, bracketright, UFF63, U300F ],
+    key <AC04> { [ u, U, bracketright, U201D, U2019 ],
                  [ Greek_omega, Greek_OMEGA ], 
                  [], 
                  [] };
@@ -153,11 +154,12 @@ xkb_symbols "hatchak" {
                  [ Greek_delta, Greek_DELTA ], 
                  [], 
                  [] };
-    key <AC07> { [ h, H, 4, NoSymbol, Down, F4, downarrow ], 
+                 // Bag parens are U27C5 and U27C6
+    key <AC07> { [ h, H, 4, U27C5, Down, F4, downarrow ], 
                  [ Greek_theta, Greek_THETA ], 
                  [], 
                  [] };
-    key <AC08> { [ t, T, 5, NoSymbol, Up, F5, uparrow ], 
+    key <AC08> { [ t, T, 5, U27C6, Up, F5, uparrow ], 
                  [ Greek_tau, Greek_TAU ], 
                  [], 
                  [] };
