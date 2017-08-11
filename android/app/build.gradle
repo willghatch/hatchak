@@ -4,7 +4,7 @@ android {
     compileSdkVersion 22
     buildToolsVersion "25.0.1"
     defaultConfig {
-        applicationId "hatchak_physical_layout"
+        applicationId "uno.hatch.hatchak_physical_layout"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
