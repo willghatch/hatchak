@@ -10,11 +10,9 @@ Android's keyboard input system is far inferior to xkb.  There doesn't seem to b
 
 ---- B U I L D ----
 
-To build the android package, set your ANDROID_HOME environment variable to point to your android sdk (maybe /opt/android-sdk).
-Then run:
-ant debug
-That will build a package and sign it with a debug key so you can install it (probably with adb install)
-To build a release version (that won't be any different) you can run:
-ant release
-But then you'll have to sign it yourself.
+Run `./gradlew build` and an apk will be in app/build/outputs/apk.
+
+I just use the debug apk.
+
+You may have to change the buildToolsVersion in app/build.gradle
 
