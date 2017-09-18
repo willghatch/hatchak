@@ -15,12 +15,13 @@ xkb_symbols "hatchak" {
     // some QT bug eats it if it's on anything else.
     // Alt and Super are on Mods 1 and 4 respectively, because that's their
     // normal placement.
-    modifier_map Mod1    { Alt_L, Alt_R };
-    modifier_map Mod5    { ISO_Level3_Shift };
-    modifier_map Mod3    { ISO_Level5_Shift };
+    //modifier_map Mod1    { Alt_L, Alt_R };
+    modifier_map Mod1    { Alt_R };
+    modifier_map Mod5    { ISO_Level3_Shift, ISO_Level3_Latch };
+    modifier_map Mod3    { ISO_Level5_Shift, ISO_Level5_Latch };
     modifier_map Mod4    { Super_L, Super_R };
     modifier_map Mod2    { Hyper_L, Hyper_R };
-    modifier_map Shift   { Shift_L, Shift_R };
+    modifier_map Shift   { Shift_L, Shift_R, ISO_Level2_Latch };
     modifier_map Control { Control_L, Control_R };
     modifier_map Lock    { Caps_Lock };
 
@@ -69,8 +70,8 @@ xkb_symbols "hatchak" {
                  [], 
                  [], 
                  [] };
-    key <AE11> { type="ONE_LEVEL", [ Super_R ] };
-    key <AE12> { type="ONE_LEVEL", [ Hyper_R ] };
+    key <AE11> { type="ONE_LEVEL", [ Super_L ] };
+    key <AE12> { type="ONE_LEVEL", [ Hyper_L ] };
     key <BKSP> { [ BackSpace, BackSpace, Delete ] };
 
 // Upper Row
@@ -112,14 +113,14 @@ xkb_symbols "hatchak" {
                  [ Greek_lamda, Greek_LAMDA ], 
                  [], 
                  [] };
-    key <AD11> { type="ONE_LEVEL", [ Control_R ] };
-    key <AD12> { type="ONE_LEVEL", [ Alt_R ] };
+    key <AD11> { type="ONE_LEVEL", [ Control_L ] };
+    key <AD12> { type="ONE_LEVEL", [ Alt_L ] };
     // The backslash key should be bound to an input method program for inputting arbitrary unicode.
     // Nobody will ever launch DOS with a key, so I'll appropriate it.
     key <BKSL> { type="ONE_LEVEL", [ XF86DOS ] };
 
 // Home Row
-    key <CAPS> { type="ONE_LEVEL", [ ISO_Level3_Shift ] };
+    key <CAPS> { type="ONE_LEVEL", [ ISO_Level3_Latch ] };
                             // U2039=‹ (single left guillemet), guillemotleft=«
     key <AC01> { [ a, A, braceleft, guillemotleft, U2039 ],
                  [ Greek_alpha, Greek_ALPHA ], 
@@ -171,11 +172,11 @@ xkb_symbols "hatchak" {
                  [ Greek_sigma, Greek_SIGMA ], 
                  [], 
                  [] };
-    key <AC11> { type="ONE_LEVEL", [ ISO_Level3_Shift ] };
+    key <AC11> { type="ONE_LEVEL", [ ISO_Level3_Latch ] };
     key <RTRN> { type="ONE_LEVEL", [ Return ] };
 
 // Lower Row
-    key <LFSH> { type="ONE_LEVEL", [ Shift_L ] };
+    key <LFSH> { type="ONE_LEVEL", [ ISO_Level2_Latch ] };
     key <AB01> { [ apostrophe, quotedbl, grave ], 
                  [], 
                  [], 
@@ -216,17 +217,17 @@ xkb_symbols "hatchak" {
                  [ Greek_zeta, Greek_ZETA ], 
                  [], 
                  [] };
-    key <RTSH> { type="ONE_LEVEL", [ Shift_R ] };
+    key <RTSH> { type="ONE_LEVEL", [ Shift_L ] };
 
 // Space Row
-    key <LCTL> { type="ONE_LEVEL", [ ISO_Level5_Shift ] };
+    key <LCTL> { type="ONE_LEVEL", [ ISO_Level5_Latch ] };
     //key <LWIN> { [] };
     key <LALT> { [ Alt_L ] }; // For VT-switching
     key <SPCE> { [ space, space, space, space ] };
     key <RALT> { [ Alt_R ] }; // For VT-switching
     //key <RWIN> { [] };
     //key <MENU> { [] };
-    key <RCTL> { type="ONE_LEVEL", [ ISO_Level5_Shift ] };
+    key <RCTL> { type="ONE_LEVEL", [ ISO_Level5_Latch ] };
 
 // I've put the numbers as the base of the number pad
 // But maybe I'll later want things like KP_Home, KP_Next, etc...
