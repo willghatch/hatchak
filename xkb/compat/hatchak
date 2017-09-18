@@ -8,6 +8,15 @@ default xkb_compatibility "hatchak" {
         whichModState= Locked;
         modifiers= Mod4;
     };
+
+    latchMods.clearLocks=True;
+    latchMods.latchToLock=True;
+
+    interpret Alt_L { action = LatchMods(modifiers=Mod1); };
+    interpret Super_L { action = LatchMods(modifiers=Mod4); };
+    interpret Hyper_L { action = LatchMods(modifiers=Mod2); };
+    interpret Control_L { action = LatchMods(modifiers=Control); };
+    interpret Shift_L { action = LatchMods(modifiers=Shift); };
                                                                                                      
 
 };
