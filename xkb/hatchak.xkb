@@ -1,3 +1,5 @@
+// To compile this into a stand-alone loadable xkb file, run (in this directory):
+// `xkbcomp -I. hatchak.xkb -xkb -o hatchak-single-file.xkb`
 xkb_keymap {
     xkb_keycodes    { include "evdev+aliases(qwerty)" };
     xkb_types       { include "hatchak" };
