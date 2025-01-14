@@ -1,0 +1,17 @@
+! model		=	keycodes
+ *	=	evdev+aliases(qwerty)
+
+! option=	keycodes
+
+! model	=	geometry
+  *	=	pc(pc104)
+
+! model		layout		variant		=	symbols
+  *		hatchack		basic		=	hatchak+inet(evdev)
+
+! layout	 = compat
+  hatchak	= hatchak
+
+! model		=	types
+  *		=	hatchak
+
