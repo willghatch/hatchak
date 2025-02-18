@@ -1,0 +1,80 @@
+;; Hatchak implementation for Kanata, but with unicode and hyper keys omitted.
+
+;; (unicode CODEPOINT) where codepoint can be in quotes, or in a raw string r#"stuff"#
+;; The (unicode CODEPOINT) thing works poorly -- it simulated key presses to do unicode input by control-shift-u, then hex, then enter, but that is application-dependent.
+;; The docs recommend using the clipboard API as an alternative to the unicode API, but there is no paste key, so that seems... unhelpful.  And it would clobber the clipboard.
+;; The best way to input unicode may be with the (abritrary-code X) form, in combination with an xkb file that defines unused keys as the desired unicode characters...
+
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(deflayer h0
+  XX  XX    lmet    tab    =    ;    S-;    \    /   S-9    S-0    rmet    XX   bspc
+  lalt  lctl    -    .    p    y    f    g    c    r    l    rctl    ralt    XX ;; TODO xf86-dos
+  (layer-while-held h2) a    o    e    u    i    d    h    t    n    s    (layer-while-held h2)    ret
+  (layer-while-held h1) '    q    j    k    x    b    m    w    v    z    (layer-while-held h1)
+  (layer-while-held h4) XX XX           spc            XX XX (layer-while-held h4)
+)
+
+(deflayer h1
+  XX  XX    lmet    S-tab    S-4    XX    XX    XX    XX   XX    XX    rmet    XX   bspc
+  lalt  lctl    S--    S-/    S-p    S-y    S-f    S-g    S-c    S-r    S-l    rctl    ralt    XX ;; TODO xf86-dos
+  (layer-while-held h3) S-a    S-o    S-e    S-u    S-i    S-d    S-h    S-t    S-n    S-s    (layer-while-held h3)    S-ret
+  XX S-'  S-q    S-j    S-k    S-x    S-b    S-m    S-w    S-v    S-z    XX
+  (layer-while-held h5) XX XX           S-spc            XX XX (layer-while-held h5)
+)
+
+(deflayer h2
+  XX  XX    lmet    bspc    XX    XX    XX    XX    XX   XX    XX    rmet    XX   bspc
+  lalt  lctl    S-\    ,    S-,    S-.    S-6    7    8    9    S-grv    rctl    ralt    XX ;; TODO xf86-dos
+  XX S-[    S-]    [    ]    S-1    S-8    4    5    6    S-=    XX    ret
+  (layer-while-held h3) grv    S-2    S-3    esc    S-7    0    1    2    3    S-5    (layer-while-held h3)
+  (layer-while-held h6) XX XX           spc            XX XX (layer-while-held h6)
+)
+
+(deflayer h3
+  XX  XX    lmet    bspc    XX    XX    XX    XX    XX   XX XX  rmet    XX   bspc
+  lalt  lctl    XX    XX    XX    XX    XX    XX    XX    XX    XX    rctl    ralt    XX ;; TODO xf86-dos
+  XX XX XX XX XX XX XX XX XX XX XX XX ret
+  XX XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  (layer-while-held h7) XX XX           spc            XX XX (layer-while-held h7)
+)
+
+(deflayer h4
+  XX  XX    lmet    XX    XX    XX    XX    XX    XX   XX    XX    rmet    XX   bspc
+  lalt  lctl    XX    XX    XX    XX    XX    XX    XX    XX    XX    rctl    ralt    XX ;; TODO xf86-dos
+  (layer-while-held h6) XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    (layer-while-held h6)    ret
+  (layer-while-held h5) XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    (layer-while-held h5)
+  XX XX XX           spc            XX XX XX
+)
+
+(deflayer h5
+  XX  XX    lmet    XX    XX    XX    XX    XX    XX   XX    XX    rmet    XX   bspc
+  lalt  lctl    XX    XX    XX    XX    XX    XX    XX    XX    XX    rctl    ralt    XX ;; TODO xf86-dos
+  (layer-while-held h7) XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    (layer-while-held h7)    ret
+  XX XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX XX XX           spc            XX XX XX
+)
+(deflayer h6
+  XX  XX    lmet    XX    XX    XX    XX    XX    XX   XX    XX    rmet    XX   bspc
+  lalt  lctl    XX    XX    XX    XX    XX    XX    XX    XX    XX    rctl    ralt    XX ;; TODO xf86-dos
+  XX XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    ret
+  (layer-while-held h7) XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    (layer-while-held h7)
+  XX XX XX           spc            XX XX XX
+)
+(deflayer h7
+  XX  XX    lmet    XX    XX    XX    XX    XX    XX   XX    XX    rmet    XX   bspc
+  lalt  lctl    XX    XX    XX    XX    XX    XX    XX    XX    XX    rctl    ralt    XX ;; TODO xf86-dos
+  XX XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    ret
+  XX XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX XX XX           spc            XX XX XX
+)
+
+
+;; TODO - use (defcfg linux-dev-names-exclude ("NAME" "NAME2")) to blacklist devices

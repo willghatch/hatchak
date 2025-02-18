@@ -1,0 +1,117 @@
+
+;; I was originally writing this Kanata implementation to see if Kanata could help with some frustrations I've had with the Linux/Unix XKB system.
+;; But I didn't really use it because it's support for unicode is somewhat poor -- it relies on sending a sequence of keys to input unicode, where that sequence is OS-dependent, and in particular on Linux doesn't work well.
+;; However, more recently I wanted to write a Windows implementation of Hatchak, and nearly gave up when reading about various (poor) ways of making custom keyboard layouts for Windows.
+;; Then I remembered that Kanata works on Windows, and that I had already written this!
+;; And the unicode input appears to work reasonably well on Windows.
+;; So this version that I didn't really use on Linux can be a good Windows implementation.
+
+
+
+
+;; This file will remain focused on providing a basic Kanata implementation with Kanata's own Unicode functionality, which works OK on Windows and maybe will work nicely on MacOS, too.
+
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+
+;; notes
+;; (layer-while-held LAYER) can be a basic shift key
+;; no-op action: XX
+
+;; (unicode CODEPOINT) where codepoint can be in quotes, or in a raw string r#"stuff"#
+;; The (unicode CODEPOINT) thing works poorly -- it simulated key presses to do universal unicode input, which I must not have configured, and anyway it's janky.
+;; The docs recommend using the clipboard API as an alternative to the unicode API, but there is no paste key, so that seems... unhelpful.
+;; The best way to input unicode may be with the (abritrary-code X) form, in combination with an xkb file that defines unused keys as the desired unicode characters...
+
+;; For potential use on Linux:
+;; So XKB has a mapping from scan code to key code, which is then combined with the symbols file (and others) to determine which key code produces which letters or special keys.  There are many scan codes that have default mappings to unused key codes, eg. I147-I190 and I208-I255.  One approach is to add symbol definitions there, then have Kanata output the various scan codes, with or without shift.  This is unsatisfying.
+;; Another option is to have a compose key in XKB, with a compose configuration that can produce each desired unicode character, then have Kanata output the compose sequence.
+;; These are both disappointing since they require XKB configuration in addition to Kanata.  It would be nice to use just one tool.  But they both provide benefits that the other lacks on its own.
+
+;; It seems like the first layer defined is the base layer.
+
+;; * TODO define an XKB file that:
+;; ** has a compose key
+;; ** makes numlock be a mod instead of a lock
+;; ** and defines the keypad as just the numbers (no numlock needed)
+;; * TODO define compositions for unicode, in sync with XCompose file
+;; * TODO use numlock key as hyper
+
+(deflayer h0
+  ;; TODO - grave/tilde as capslock, l/r hyper
+  XX  XX    lmet    tab    =    ;    S-;    \    /   S-9    S-0    rmet    XX   bspc
+  lalt  lctl    -    .    p    y    f    g    c    r    l    rctl    ralt    XX ;; TODO xf86-dos
+  (layer-while-held h2) a    o    e    u    i    d    h    t    n    s    (layer-while-held h2)    ret
+  (layer-while-held h1) '    q    j    k    x    b    m    w    v    z    (layer-while-held h1)
+  (layer-while-held h4) XX XX           spc            XX XX (layer-while-held h4)
+)
+
+(deflayer h1
+  ;; TODO - greek group latch for shift-slash, shift-left-paren as multi-key, shift-right-paren as dead acute
+  XX  XX    lmet    S-tab    S-4    (unicode ∞)    (unicode …)    (unicode °)    XX   XX    XX    rmet    XX   bspc
+  lalt  lctl    S--    S-/    S-p    S-y    S-f    S-g    S-c    S-r    S-l    rctl    ralt    XX ;; TODO xf86-dos
+  (layer-while-held h3) S-a    S-o    S-e    S-u    S-i    S-d    S-h    S-t    S-n    S-s    (layer-while-held h3)    S-ret
+  XX S-'  S-q    S-j    S-k    S-x    S-b    S-m    S-w    S-v    S-z    XX
+  (layer-while-held h5) XX XX           S-spc            XX XX (layer-while-held h5)
+)
+
+(deflayer h2
+  ;; TODO - grave/tilde as capslock, l/r hyper
+  XX  XX    lmet    bspc    (unicode ≠)    (unicode λ)    (unicode ¶)    (unicode ™)    (unicode ÷)   (unicode ◸)    (unicode ◹)    rmet    XX   bspc
+  lalt  lctl    S-\    ,    S-,    S-.    S-6    7    8    9    S-grv    rctl    ralt    XX ;; TODO xf86-dos
+  XX S-[    S-]    [    ]    S-1    S-8    4    5    6    S-=    XX    ret
+  (layer-while-held h3) grv    S-2    S-3    esc    S-7    0    1    2    3    S-5    (layer-while-held h3)
+  (layer-while-held h6) XX XX           spc            XX XX (layer-while-held h6)
+)
+
+(deflayer h3
+  ;; TODO - grave/tilde as capslock, l/r hyper
+  XX  XX    lmet    bspc    (unicode ¢)    XX    (unicode §)    (unicode ®)    (unicode ×)   (unicode ◺) (unicode ◿)  rmet    XX   bspc
+  lalt  lctl    (unicode ¦)    (unicode ¿)    XX    XX    XX    XX    XX    XX    (unicode ¬)    rctl    ralt    XX ;; TODO xf86-dos
+  XX (unicode «) (unicode ») (unicode “) (unicode ”) (unicode ¡) (unicode •) (unicode ⟅) (unicode ⟆) XX (unicode ±) XX ret
+  XX XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  (layer-while-held h7) XX XX           spc            XX XX (layer-while-held h7)
+)
+
+(deflayer h4
+  ;; TODO - grave/tilde as capslock, l/r hyper
+  XX  XX    lmet    XX    (unicode €)    XX    XX    (unicode ©)    XX   (unicode ◤)    (unicode ◥)    rmet    XX   bspc
+  ;; TODO - g on h4 should be group latch, c home, r end, l pageup, though I never use any of these... (in terms of hatchak base level...)
+  lalt  lctl    XX    XX    XX    XX    XX    XX    XX    XX    XX    rctl    ralt    XX ;; TODO xf86-dos
+  ;; TODO - qwerty hjkl as left, down, up, right, though I never use them, and qwerty semicolon as page down
+  (layer-while-held h6) (unicode ‹)    (unicode ›)    (unicode ‘)    (unicode ’)    XX    XX    XX    XX    XX    XX    (layer-while-held h6)    ret
+  (layer-while-held h5) XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    (layer-while-held h5)
+  XX XX XX           spc            XX XX XX
+)
+
+(deflayer h5
+  XX  XX    lmet    XX    XX    XX    XX    XX    XX   (unicode ◣)    (unicode ◢)    rmet    XX   bspc
+  lalt  lctl    XX    XX    XX    XX    XX    XX    XX    XX    XX    rctl    ralt    XX ;; TODO xf86-dos
+  (layer-while-held h7) XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    (layer-while-held h7)    ret
+  XX XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX XX XX           spc            XX XX XX
+)
+(deflayer h6
+  XX  XX    lmet    XX    XX    XX    XX    XX    XX   XX    XX    rmet    XX   bspc
+  lalt  lctl    XX    XX    XX    XX    XX    XX    XX    XX    XX    rctl    ralt    XX ;; TODO xf86-dos
+  XX XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    ret
+  (layer-while-held h7) XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    (layer-while-held h7)
+  XX XX XX           spc            XX XX XX
+)
+(deflayer h7
+  XX  XX    lmet    XX    XX    XX    XX    XX    XX   XX    XX    rmet    XX   bspc
+  lalt  lctl    XX    XX    XX    XX    XX    XX    XX    XX    XX    rctl    ralt    XX ;; TODO xf86-dos
+  XX XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    ret
+  XX XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX XX XX           spc            XX XX XX
+)
+
+
+;; TODO - use (defcfg linux-dev-names-exclude ("NAME" "NAME2")) to blacklist devices
